@@ -12,7 +12,6 @@ CREATE TABLE users (
   name VARCHAR(255) NOT NULL,
   email VARCHAR(225) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  sign_up_date TIMESTAMP,
 
   creator_status BOOLEAN DEFAULT FALSE
 );
@@ -24,29 +23,27 @@ CREATE TABLE stories (
   title VARCHAR(255) NOT NULL,
   description TEXT NOT NULL,
 
-  start_date TIMESTAMP,
-  publish_date TIMESTAMP,
-
-  publish_status BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT Now(),
+  publish_date TIMESTAMP DEFAULT Now(),
 
   creator_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS contributions CASCADE;
+CREATE TABLE contributions (
+  id SERIAL PRIMARY KEY NOT NULL,
+  story_id INTEGER REFERENCES stories(id) ON DELETE CASCADE,
+  contributor_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  like_id INTEGER REFERENCES likes(id) ON DELETE CASCADE,
+
+  content TEXT,
+  created_at TIMESTAMP DEFAULT Now()
 );
 
 
 DROP TABLE IF EXISTS likes CASCADE;
 CREATE TABLE likes (
   id SERIAL PRIMARY KEY NOT NULL,
-  story_id INTEGER REFERENCES stories(id) ON DELETE CASCADE,
+  contribution_id INTEGER REFERENCES contributions(id) ON DELETE CASCADE,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
-);
-
-
-DROP TABLE IF EXISTS contributions CASCADE;
-CREATE TABLE contributions (
-  id SERIAL PRIMARY KEY NOT NULL,
-  story_id INTEGER REFERENCES stories(id) ON DELETE CASCADE,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  likes_id INTEGER REFERENCES likes(id) ON DELETE CASCADE,
-
-  content TEXT
 );
