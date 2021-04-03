@@ -34,16 +34,16 @@ CREATE TABLE contributions (
   id SERIAL PRIMARY KEY NOT NULL,
   story_id INTEGER REFERENCES stories(id) ON DELETE CASCADE,
   contributor_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  like_id INTEGER REFERENCES likes(id) ON DELETE CASCADE,
+  likes INTEGER,
 
   content TEXT,
   created_at TIMESTAMP DEFAULT Now()
 );
 
 
-DROP TABLE IF EXISTS likes CASCADE;
-CREATE TABLE likes (
-  id SERIAL PRIMARY KEY NOT NULL,
-  contribution_id INTEGER REFERENCES contributions(id) ON DELETE CASCADE,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
-);
+-- DROP TABLE IF EXISTS likes CASCADE;
+-- CREATE TABLE likes (
+--   id SERIAL PRIMARY KEY NOT NULL,
+--   contribution_id INTEGER REFERENCES contributions(id) ON DELETE CASCADE,
+--   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+-- );
