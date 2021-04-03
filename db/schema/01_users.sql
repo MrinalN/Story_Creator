@@ -1,11 +1,4 @@
--- Drop and recreate Users table (Example they gave us)
--- DROP TABLE IF EXISTS users CASCADE;
--- CREATE TABLE users (
---   id SERIAL PRIMARY KEY NOT NULL,
---   name VARCHAR(255) NOT NULL
--- );
-
--- -- ---Apr 3rd - Adele will be working here--
+-----Last updated Apr 3rd - Adele --
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -40,10 +33,3 @@ CREATE TABLE contributions (
   created_at TIMESTAMP DEFAULT Now()
 );
 
-
--- DROP TABLE IF EXISTS likes CASCADE;
--- CREATE TABLE likes (
---   id SERIAL PRIMARY KEY NOT NULL,
---   contribution_id INTEGER REFERENCES contributions(id) ON DELETE CASCADE,
---   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
--- );

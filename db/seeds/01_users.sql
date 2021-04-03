@@ -1,8 +1,4 @@
--- -- Users table seeds here (Example they gave us)
--- INSERT INTO users (name) VALUES ('Alice');
--- INSERT INTO users (name) VALUES ('Kira');
-
--- ---Apr 3rd - Adele will be working here--
+-----Last updated Apr 3rd - Adele--
 INSERT INTO users (name, email, password, creator_status)
 VALUES ('Alice', 'alice.cooks.lots@mail.com', 'password', FALSE),
 ('Bob', 'bob.writes@mail.com', 'password', TRUE),
@@ -28,10 +24,3 @@ VALUES (1, 1, 2, 'I thought my laces were tied tight, but I guess not!', '2020-0
 (1, 1, null, 'This always happens when I want pizza.', Now());
 
 
--- INSERT INTO likes (contribution_id, user_id)
--- --Carol likes Alice's contribution to 'The Lost Shoe' story
--- VALUES(3, 1),
--- --Bob likes Alice's contribution
--- (2, 1),
--- -- Alice likes her own contribution to Bob's 'Zorro'
--- (3, 1);
