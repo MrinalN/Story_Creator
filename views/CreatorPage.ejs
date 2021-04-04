@@ -1,0 +1,19 @@
+<form method="POST" action="/creator" id='CreateStory'> 
+    <div class="form-group row">
+      <label for="title" class="col-sm-2 col-form-label">Enter Title</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" name="title" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="story" class="col-sm-2 col-form-label">Write Story</label>
+      <div class="col-sm-6">
+        <textarea rows="4" cols="50" name="story" form="CreateStory">
+          Enter text here...</textarea>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-8">
+        <button type="submit" class="btn btn-primary ">Submit</button>
+      </div>
+</form>
