@@ -7,20 +7,27 @@ module.exports  = (db) => {
 
 router.get("/", (req, res) => {
     // let user = FindUserObject(req.session.user_id);
+    db.query(`SELECT title FROM stories`)
+    .then(data => {
+    const story = data.rows;
+    const templateVars = { titles : titles};
+    res.render("maintitlepage",templateVars);
+    })
+    .catch(err => {
+    res
+    .status(500)
+    .json({ error: err.message });
+    });
     const templateVars = { };
-    res.redirect('/');
+    res.render('/');
   });
 
-router.get("/:story_id", (req, res) => {
-   
-    
-// REDIRECTS TO STORY SPECIFIC PAGE AND RENDERS DATA FROM DATABASE    
+// REDIRECTS TO STORY SPECIFIC PAGE AND RENDERS DATA FROM DATABASE  
+router.get("/:story_id", (req, res) => { 
     db.query(`SELECT title, description FROM stories
               WHERE id = ${req.params.story_id};`)
       .then(data => {
         const story = data.rows;
-        // console.log({story})
-        //console.log(JSON.stringify({story}))
         const templateVars = { story : story};
         res.render("story",templateVars);
       })
