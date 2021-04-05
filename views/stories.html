@@ -1,0 +1,83 @@
+<!-- Current question: how do we populate the boxes? -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <title>Story Creator</title>
+</head>
+  <body style=" background-color:#7CAF22">
+
+  <!-- <%- include('partials/_header') %> -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/story">
+          <img src='https://cdn.worldvectorlogo.com/logos/story.svg' width="50" height="50"> Ten Word Tale
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Start a Story</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contribute to a Story</a>
+            </li>
+            </ul>
+        </div>
+        <p>
+          <a href="/login">
+            <button class="btn btn-secondary" value='delete'>Login
+            </button>
+          </a>
+          <a href="/register">
+            <button class="btn btn-secondary" value='delete'>Register
+            </button>
+          </a>
+        </p>
+      </nav>
+<!-- header bar ends here -->
+    <main style="margin:1em;" >
+      <h3>Check out a story!</h3>
+      <h6>Orange, in progress. Grey, published!</h6>
+        <br>
+
+        <section id="story-container">
+           <article>
+             <header>
+               <div class="profile-icon">
+                 <i class="far fa-user-circle"></i>
+               </div>
+             </header>
+             <p>
+             Tweet Handle
+             </p>
+             <p>
+             tweet content
+             </p>
+             <footer>
+               <p>10 Days Ago</p>
+               <p><i class="fas fa-retweet"></i> <i class="fas fa-flag"></i> <i class="fas fa-heart"></i></p>
+             </footer>
+           </article>
+           </section>
+          <br>
+          <br>
+          <input type="submit" class="btn btn-primary" value="Login" />
+        </form>
+
+    </main>
+
+    <!-- <%- include('partials/footer') %> -->
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
