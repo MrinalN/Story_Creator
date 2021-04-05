@@ -11,16 +11,14 @@ router.get("/", (req, res) => {
     res.render("CreatorPage",templateVars);
 });
 
-// PRINTS TITLE LIST TO MAIN PAGE  
+// ADDS TO DB THE STORY --->ADD USER ID <------
 router.post("/", (req, res) => {
-    console.log(req.body)
     db.query(`INSERT INTO stories (title, description, created_at, publish_date, creator_id)
               VALUES ('${req.body.title}', '${req.body.story}','2020-01-12T08:00:00.000Z', null, 2) 
               RETURNING *;`)
-    .then(data => {
-       console.log('inserted') 
-       console.log(data)
-       //res.redirect('/story/:story_id')
+    .then(data => {      
+       let storyId = data['rows'][0]['id']
+       res.redirect(`/story/${storyId}`)
     })
     .catch(err => {
     res
