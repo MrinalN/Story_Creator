@@ -18,7 +18,7 @@ router.post("/", (req, res) => {
     WHERE email = '${req.body.email}'`)
     .then(data => {   
       console.log(data['rows'])
-      if (data['rows'] === []) {
+      if (data['rows'].length < 1) {
         res.status(403).send('Error: 404 Email does not exist');
       } else if (bcrypt.compareSync(req.body.password,data['rows'][0]['password'])) {
         req.session.user_id = data['rows'][0]['id'];
@@ -32,11 +32,6 @@ router.post("/", (req, res) => {
     .status(500)
     .json({ error: err.message });
     });
-    
-  // let user = FindUserByEmail(req.body.email,users);
-  // let hashedPassword = user['password'];
-  // console.log(hashedPassword);
-  
 });
 
   return router;
