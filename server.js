@@ -43,16 +43,16 @@ app.use(cookieSession({
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const HomePageRoutes = require("./routes/HomePageRoutes");
-const CreatorRoutes = require("./routes/CreatorPageRoutes");
+const stories = require("./routes/stories");
+const creator = require("./routes/creator");
 const login = require("./routes/login");
 const register = require("./routes/register");
 // const contributions = require("./routes/contributions")
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 
-app.use("/stories", HomePageRoutes(db));
-app.use("/creator", CreatorRoutes(db));
+app.use("/stories", stories(db));
+app.use("/creator", creator(db));
 app.use("/login", login(db));
 app.use("/register", register(db));
 // app.use("/contributions", contributions(db));
