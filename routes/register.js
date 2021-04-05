@@ -21,7 +21,7 @@ router.post("/", (req, res) => {
     RETURNING *;`)
     .then(data => {   
       req.session.user_id = data['rows'][0]['id'];
-      res.redirect(`/story`)
+      res.redirect(`/stories`)
     })
     .catch(err => {
     res

@@ -47,13 +47,15 @@ const HomePageRoutes = require("./routes/HomePageRoutes");
 const CreatorRoutes = require("./routes/CreatorPageRoutes");
 const login = require("./routes/login");
 const register = require("./routes/register");
+// const contributions = require("./routes/contributions")
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 
-app.use("/story", HomePageRoutes(db));
+app.use("/stories", HomePageRoutes(db));
 app.use("/creator", CreatorRoutes(db));
 app.use("/login", login(db));
 app.use("/register", register(db));
+// app.use("/contributions", contributions(db));
 // Note: mount other resources here, using the same pattern above
 
 

@@ -1,0 +1,11 @@
+<h1>This is contributions page</h1>
+
+<% for (let contribution of data) { %>
+    <h3><%= contribution['content'] %> <%= contribution['likes'] %></h3>
+    <form method="POST" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>"> 
+        <div class="form-group row">
+            <div class="col-sm-8">
+              <button type="submit" class="btn btn-primary ">ADD to STORY</button>
+            </div>
+    </form>
+<% } %> 

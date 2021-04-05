@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
         res.status(403).send('Error: 404 Email does not exist');
       } else if (bcrypt.compareSync(req.body.password,data['rows'][0]['password'])) {
         req.session.user_id = data['rows'][0]['id'];
-        res.redirect('/story');
+        res.redirect('/stories');
       } else {
         res.status(403).send('Error: 404 Password does not match');
       }
