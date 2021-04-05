@@ -14,9 +14,9 @@ module.exports  = (db) => {
 
 // PRINTS TITLE LIST TO MAIN PAGE
 router.get("/", (req, res) => {
-  if (!req.session.user_id) {
-    res.redirect('/login');
-  } else {
+  // if (!req.session.user_id) {
+  //   res.redirect('/login');
+  // } else {
     db.query(`SELECT title FROM stories`)
     .then(data => {
     const titles = data.rows;
@@ -28,7 +28,7 @@ router.get("/", (req, res) => {
     .status(500)
     .json({ error: err.message });
     });
-  }
+  // }
 });
 
 // REDIRECTS TO STORY SPECIFIC PAGE AND RENDERS DATA FROM DATABASE
