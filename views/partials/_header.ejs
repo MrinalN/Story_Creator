@@ -7,13 +7,18 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <% if(user){ %>
-          <a class="nav-link" href="/story/creator">Create Story</a>
+            <!-- Note: text changed here -->
+          <a class="nav-link" href="/story/creator">Ten Word Tale</a>
           <% } else { %>
-            <a class="nav-item nav-link" href="/login">Create Story</a>
+            <a class="nav-item nav-link" href="/login">Ten Word Tale</a>
         <% } %>
+         <!-- Note: 'Start a Story' li added here -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">Start a Story</a>
+        </li>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contribute to Story</a>
+          <a class="nav-link" href="#">Contribute to a Story</a>
         </li>
         </ul>
     </div>
