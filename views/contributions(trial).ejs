@@ -2,19 +2,19 @@
 
 <% for (let contribution of data) { %>
     <h3><%= contribution['content'] %> <%= contribution['likes'] %> ...id=<%= contribution['id'] %></h3>
-    <form method="POST" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>"> 
+    <form method="POST" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>">
         <div class="form-group row">
             <div class="col-sm-8">
               <button type="submit" class="btn btn-primary ">ADD to STORY</button>
             </div>
     </form>
-    <form method="GET" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>/delete"> 
+    <form method="GET" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>/delete">
       <div class="form-group row">
           <div class="col-sm-8">
             <button type="submit" class="btn btn-primary ">DELETE</button>
           </div>
   </form>
-    
-<% } %> 
+
+<% } %>
 
 
