@@ -10,40 +10,32 @@
   <title>Story Creator</title>
 </head>
 
-<body style=" background-color:#7CAF22">
+<body style='background-color: #7CAF22'>
   <main style="margin: 1em">
     <div class='large-container'>
-    <h3>CHALLENGE: START A STORY USING ONLY 10 WORDS</h3>
-<form method="POST" action="/creator" id='CreateStory'>
-    <div class="form-group row">
-      <label for="title" class="col-sm-2 col-form-label">Enter Title</label>
-      <div class="col-sm-6">
-        <input type="text" class="form-control" name="title" >
-      </div>
+      <!-- This will be where the stoies are rended too-->
+    <div class="stories" id='stories'>
+      <p>Hello this is a rando, story about nothing! It will</p>
+      <p>Hello this is a rando, story about nothing! It will</p>
+      <p>Hello this is a rando, story about nothing! It will</p>
+      <p>Hello this is a rando, story about nothing! It will</p>
+      <p>Hello this is a rando, story about nothing! It will</p>
     </div>
-    <div class="form-group row">
-      <label for="story" class="col-sm-2 col-form-label">Write Story</label>
-      <div class="col-sm-6">
-        <textarea rows="4" cols="50" name="story" form="CreateStory">
-          Be creative!</textarea>
-      </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-sm-8">
-        <button type="submit" class="btn btn-primary" id="submit-story" method='POST' action='/story'>Start Your Story!</button>
+      <form method="POST" action="/creator" id='CreateStory'>
+        <div>
+        <button type="submit" class="btn btn-primary" id="submit-story" method='POST' action='/story'>Im Done! Publish!</button>
       </div>
 </form>
-
 </div>
-<div class='examples'style="display: flex; align-items: center; flex-direction: column; margin-right: 30em;">
-  <h5>5 ways to start your story!</h5>
-  <ul>
-    <li>Hook readers with excitement...</li>
-    <li>Introduce the lead character...</li>
-    <li>Start with dialogue...</li>
-    <li>Use memories...</li>
-    <li>Begin with a mystery...</li>
-  </ul>
+<div class='bottom-box'>
+  <textarea rows="2" cols="50" name="story" form="edit-story" style="margin-top: 20px;">
+    Be creative!
+  </textarea>
+  <form method='POST' action='#'>
+      <button id='done-button' class="btn btn-danger">Im Done!</button>
+  </form>
+  <a>
+  
 </div>
 </main>
 <!-- Bootstrap JS -->
@@ -51,10 +43,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-<head>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-</head>
+</html>
 
 <footer class="bg-light text-center text-lg-start">
 
