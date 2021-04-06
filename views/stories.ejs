@@ -1,22 +1,61 @@
-<!-- NOTE: This document title needs to be changed to "stories.ejs" -->
+ HEAD
+<!-- Apr 6th - Adel<<<<<<<e - page has been reset to match their index.ejs flow -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Stories Main Page</title>
+    <!-- from Bootstrap docs: Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Current question: how do we populate the boxes? -->
+<!-- What they set up for us: don't change. SASS related * redundant?-->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  </head>
+
+
+  <body >
+
+    <header>
+      <!-- - include('partials_header')  -->
+
+<!-- IGNORE - hard printed header to check view -->
+      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/story">
+          <img src='https://www.livingmags.info/wp-content/uploads/final-insp-in-iso-03-1.png' width="50" height="50"> Ten Word Tale
+=======
+<!-- Adele - Stories Take 2. -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <title>Story Creator</title>
+
+  <link rel="stylesheet" href="/styles/stories.css">
+
+  <title>Stories Main Page</title>
 </head>
-  <body style=" background-color:#7CAF22">
- 
+  <body>
+
     <header>
+ <!-- < include('partials/_header') > -->
+
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/story">
-          <img src='https://cdn.worldvectorlogo.com/logos/story.svg' width="50" height="50"> Ten Word Tale
+          <img src='https://st2.depositphotos.com/3969727/9550/v/950/depositphotos_95503166-stock-illustration-pen-feather-icon.jpg' width="50" height="50"> Ten Word Tale
+>>>>>>> stories-V2
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -40,12 +79,31 @@
             </button>
           </a>
         </p>
+<<<<<<< HEAD
       </nav>
+=======
+<<<<<<< HEAD
+      </nav> -->
+  <!-- header bar ends here -->
+
+    </header>
+
+
+
+    <main style="background-color:#0072CB;" >
+      <h2>Check out a story!</h2>
+=======
+      </nav>
+
+>>>>>>> 33978581a418936d7cab3cd2114afc7c6eec7219
 <!-- header bar ends here -->
     <main style="margin:1em;" >
       <h3>Check out a story!</h3>
-      <h6>Orange, in progress. Grey, published!</h6>
+>>>>>>> stories-V2
+      <h6> 📖 in progress. 📕 published!</h6>
         <br>
+        <br>
+<<<<<<< HEAD
         <section id="story-container">
            <article>
              <header>
@@ -65,19 +123,153 @@
              </footer>
            </article>
            </section>
+=======
+
+<<<<<<< HEAD
+          <article class="stories-box;" style="width: 60em;">
+            <header>
+              <h5>The Lost Shoe</h5>
+              <p>📖</p>
+            </header>
+
+            <p>Once I lost my shoe when walking through the forest.</p>
+
+            <footer>
+                <p>10 Days Ago...........................by Bob</p>
+                <!-- <p>by Bob</p> -->
+            </footer>
+          </article>
+
+        <br>
+        <br>
+
+          <article class="stories-box;" style="width: 60em;">
+            <header>
+              <h5>Zorro</h5>
+              <p>📕</p>
+            </header>
+
+              <p>
+                'Zorro', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta, augue in fermentum vulputate, felis ligula auctor nunc, non rhoncus ex nisl sit amet ligula. Aliquam vehicula sem at purus luctus semper. Morbi pulvinar eu turpis ....
+              </p>
+              <!-- PERSONAL REMINDER: set css - don't overflow -->
+
+            <footer>
+              <p>10 Days Ago...........................by Bob</p>
+              <!-- <p>by Bob</p> -->
+            </footer>
+          </article>
+
+
+>>>>>>> 33978581a418936d7cab3cd2114afc7c6eec7219
           <br>
           <br>
-          <input type="submit" class="btn btn-primary" value="Login" />
-        </form>
+
+          <article class="stories-box;" style="width: 60em;">
+            <header>
+              <h5>Metamorphosis</h5>
+              <p>📕</p>
+            </header>
+=======
+      <article class="story-box">
+        <header>
+          <h5>The Lost Shoe</h5>
+          <!-- "In process" will change as an if statement when "published" -->
+          <p>In process 📖 </p>
+        </header>
+
+        <p> Once I lost my shoe when walking through the forest. </p>
+
+        <footer>
+          <p>10 Days Ago....................by Bob</p>
+           <!-- <p>by Bob</p> -->
+        </footer>
+      </article>
+
+      <br>
+      <br>
+
+      <article class="story-box">
+        <header>
+          <h5>Zorro</h5>
+          <p> Completed 📕 </p>
+        </header>
+
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta, augue in fermentum vulputate, felis ligula auctor nunc, non rhoncus ex nisl sit amet ligula. Aliquam vehicula sem at purus luctus semper. Morbi pulvinar eu turpis at lacinia. Sed a enim pellentesque, porttitor lacus at, vulputate nisl. Etiam et ligula eget dolor tempus gravida </p>
+
+        <footer>
+          <p>10 Days Ago....................by Bob</p>
+           <!-- <p>by Bob</p> -->
+        </footer>
+      </article>
+
+      <br>
+      <br>
+
+      <article class="story-box">
+        <header>
+          <h5>Metamorphosis</h5>
+          <p> Completed📕 </p>
+        </header>
+
+        <p> As Gregor Samsa awoke one morning from uneasy dreams he found himself transformed in his bed into an enormous insect </p>
+
+        <footer>
+          <p>10 Days Ago....................by Kafka</p>
+           <!-- <p>by Bob</p> -->
+        </footer>
+      </article>
 
     </main>
-    <%- include('partials/_footer') %>
 
+    <!-- <- include('partials/_footer') > -->
+>>>>>>> stories-V2
 
+            <p>
+              One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections...
+            </p>
+              <!-- PERSONAL REMINDER: set css - don't overflow -->
 
-    <!-- Bootstrap JS -->
+            <footer>
+              <p>10 Days Ago...........................by Kafka</p>
+              <!-- <p>by Bob</p> -->
+            </footer>
+          </article>
+
+<<<<<<< HEAD
+    </main>
+       <!-- - include('partials_footer')  -->
+=======
+    <!-- Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+>>>>>>> stories-V2
   </body>
 </html>
+
+
+
+<<<<<<< HEAD
+
+<!-- for loops to input later -->
+  <!-- <ul>
+=======
+<!-- NOTES TO SELF -->
+        <!-- <h1>THis is the titles page</h1>
+
+        <ul>
+>>>>>>> stories-V2
+        <% for (let StoryTitle of TitleList) { %>
+        <li><%= StoryTitle['title'] %></li>
+        <% } %>
+        </ul> -->
+
+<<<<<<< HEAD
+<!-- NOTE: we need all info from USERS and STORIES db for display
+              SELECT (users.*) AS users, (stories.*)
+              FROM users
+              JOIN stories ON user_id = users.id -->
+=======
+        <!-- css - don't overflow -->
+>>>>>>> stories-V2
