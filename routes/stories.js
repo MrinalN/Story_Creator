@@ -8,10 +8,12 @@ router.get("/", (req, res) => {
   // if (!req.session.user_id) {
   //   res.redirect('/login');
   // } else {
-    db.query(`SELECT title FROM stories`)
+    db.query(`SELECT title, description, created_at, publish_date, users.name FROM stories
+              JOIN users ON users.id = creator_id;`)
     .then(data => {
-    const titles = data.rows;
-    const templateVars = { TitleList : titles};
+    const data1 = data.rows;
+    const templateVars = { StoriesDB : data1};
+    console.log(data1)
     res.render("stories",templateVars); //Adele changing here
     })
     .catch(err => {
