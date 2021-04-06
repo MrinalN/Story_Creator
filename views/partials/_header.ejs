@@ -6,6 +6,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
+
+          <% if(user){ %>
+            <!-- Note: text changed here -->
+            <form  method='' action=''>
+              <button class="nav-link" >Ten Word Tale</button>
+            </form>
+            <form method='' action=''>
+          <button class="nav-link" >Ten Word Tale</button>
+            </form>
+          <% } else { %>
+            <form method='' action=''>
+            <button class="nav-item nav-link" >Ten Word Tale</button>
+            </form>
+        <% } %>
+
           <!-- <% if(user){ %>
             Note: text changed here
           <a class="nav-link" href="/story/creator">Ten Word Tale</a>
@@ -17,11 +32,15 @@
         <!-- <% } %> -->
          <!-- Note: 'Start a Story' li added here -->
         <li class="nav-item">
-          <a class="nav-link" href="#">Start a Story</a>
+          <form method='' action=''>
+          <button class="nav-link" >Start a Story</button>
+          </form>
         </li>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contribute to a Story</a>
+          <form method='' action=''>
+          <button class="nav-link" >Contribute to a Story</button>
+          </form>
         </li>
         </ul>
     </div>
@@ -31,16 +50,21 @@
       </form>
       <% } else { %>
         <p>
-          <a href="/login">
+          <form method='' action=''>
             <button class="btn btn-secondary" value='delete'>Login
             </button>
-          </a>
-          <a href="/register">
+          </form>
+          <form method='' action=''>
             <button class="btn btn-secondary" value='delete'>Register
             </button>
-          </a>
+          </form>
+        </p>
+      <% } %>
+
+         
         </p> -->
       <!-- <% } %> -->
+
   </nav>
   <!-- Needs to go in other ejs pages-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
