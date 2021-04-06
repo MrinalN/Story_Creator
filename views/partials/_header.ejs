@@ -6,6 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
+
           <% if(user){ %>
             <!-- Note: text changed here -->
             <form  method='' action=''>
@@ -19,6 +20,16 @@
             <button class="nav-item nav-link" >Ten Word Tale</button>
             </form>
         <% } %>
+
+          <!-- <% if(user){ %>
+            Note: text changed here
+          <a class="nav-link" href="/story/creator">Ten Word Tale</a>
+          <% } else { %> -->
+            <form class="nav-item nav-link"  method="get" action="/login"> 
+              <button class="btn btn-success " type="submit" style="margin-left: 1em">Log In</button>
+            </div>
+          </form>
+        <!-- <% } %> -->
          <!-- Note: 'Start a Story' li added here -->
         <li class="nav-item">
           <form method='' action=''>
@@ -33,8 +44,8 @@
         </li>
         </ul>
     </div>
-    <% if(user){ %>
-      <h5>Welcome back <%= user.name %> </h5>
+    <!-- <% if(user){ %>
+      <h5>Welcome back </h5>
       <form method="GET" action="/logout"><button class="btn btn-secondary" value='delete'>Logout</button>
       </form>
       <% } else { %>
@@ -43,12 +54,17 @@
             <button class="btn btn-secondary" value='delete'>Login
             </button>
           </form>
-          <a method='' action=''>
+          <form method='' action=''>
             <button class="btn btn-secondary" value='delete'>Register
             </button>
           </form>
         </p>
       <% } %>
+
+         
+        </p> -->
+      <!-- <% } %> -->
+
   </nav>
   <!-- Needs to go in other ejs pages-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
