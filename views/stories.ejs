@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
   <link rel="stylesheet" href="/styles/stories.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <title>Stories Main Page</title>
 </head>
@@ -51,71 +52,46 @@
       <h3>Check out a story!</h3>
       <h6> 📖 in progress. 📕 published!</h6>
         <br>
-        <br>
-
+        <br>   
+   <% for (let story of StoriesDB) { %>
+    <% if (story.publish_date === null) { %>
       <article class="story-box">
         <header>
-          <h5>The Lost Shoe</h5>
+          <h5><%=story.title%></h5>
           <!-- "In process" will change as an if statement when "published" -->
           <p>In process 📖 </p>
         </header>
-
-        <p> Once I lost my shoe when walking through the forest. </p>
-
+        <p><%=story.description%></p>
         <footer>
-          <p>10 Days Ago....................by Bob</p>
-           <!-- <p>by Bob</p> -->
+          <p><%=story.created_at%></p>
+           <p>by <%=story.name%></p>
         </footer>
       </article>
 
       <br>
       <br>
-
+    <% } else { %>
       <article class="story-box">
         <header>
-          <h5>Zorro</h5>
-          <p> Completed 📕 </p>
+          <h5><%=story.title%></h5>
+          <!-- "In process" will change as an if statement when "published" -->
+          <p>Completed 📕 </p>
         </header>
-
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta, augue in fermentum vulputate, felis ligula auctor nunc, non rhoncus ex nisl sit amet ligula. Aliquam vehicula sem at purus luctus semper. Morbi pulvinar eu turpis at lacinia. Sed a enim pellentesque, porttitor lacus at, vulputate nisl. Etiam et ligula eget dolor tempus gravida </p>
-
+        <p ><%=story.description%></p>
         <footer>
-          <p>10 Days Ago....................by Bob</p>
-           <!-- <p>by Bob</p> -->
+          <p><%=story.created_at%>....................by <%=story.name%></p>
+          <p>by <%=story.name%></p>
         </footer>
       </article>
 
       <br>
       <br>
-
-      <article class="story-box">
-        <header>
-          <h5>Metamorphosis</h5>
-          <p> Completed📕 </p>
-        </header>
-
-        <p> As Gregor Samsa awoke one morning from uneasy dreams he found himself transformed in his bed into an enormous insect </p>
-
-        <footer>
-          <p>10 Days Ago....................by Kafka</p>
-           <!-- <p>by Bob</p> -->
-        </footer>
-      </article>
+    <% } %>
+  <% } %>
 
     </main>
 
     <!-- <- include('partials/_footer') > -->
-
-            <p>
-              One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections...
-            </p>
-              <!-- PERSONAL REMINDER: set css - don't overflow -->
-
-            <footer>
-              <p>10 Days Ago...........................by Kafka</p>
-              <!-- <p>by Bob</p> -->
-            </footer>
-          </article>
 
     </main>
        <!-- - include('partials_footer')  -->
@@ -123,17 +99,12 @@
 </html>
 
 
-
-<!-- NOTES TO SELF -->
-        <!-- <h1>THis is the titles page</h1>
-
-        <ul>
-        <% for (let StoryTitle of TitleList) { %>
-        <li><%= StoryTitle['title'] %></li>
-        <% } %>
-        </ul> -->
-
-<!-- NOTE: we need all info from USERS and STORIES db for display
-              SELECT (users.*) AS users, (stories.*)
-              FROM users
-              JOIN stories ON user_id = users.id -->
+<script>
+  $( document ).ready(function() {
+    $( ".story-box" ).click(function() {
+      let url= `/stories/1`
+      window.location.replace(url)
+   });
+});
+  
+</script>
