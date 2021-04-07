@@ -23,4 +23,14 @@ VALUES (1, 1, 2, 'I thought my laces were tied tight, but I guess not!', '2020-0
 -- Alice contributes again to Bob's 1st story.
 (1, 1, null, 'This always happens when I want pizza.', Now());
 
+INSERT INTO like_table (contribution_id,user_id)
+-- Alice likes first ( I thought my laces ) contribution
+VALUES(1,1),
+--Bob likes first
+(1,2),
+--Alice likes second
+(2,1)
+
+
+
 
