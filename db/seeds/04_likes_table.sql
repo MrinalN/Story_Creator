@@ -6,7 +6,7 @@ VALUES(1,1),
 --Brontë3 likes first
 (1,2),
 --Zigazigaza likes second
-(5,1)
+(5,1),
 --AliceTheCamelCase likes second
 (2,4),
 --Carol likes
