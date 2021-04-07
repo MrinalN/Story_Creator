@@ -1,28 +1,140 @@
-<h1>This is contributions page</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Contributions Page</title>
+    <!-- from Bootstrap docs: Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<% for (let contribution of data) { %>
-    <h3><%= contribution['content'] %> <%= contribution['likes'] %> ...id=<%= contribution['id'] %></h3>
-    <form method="POST" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>"> 
-        <div class="form-group row">
-            <div class="col-sm-8">
-              <button type="submit" class="btn btn-primary ">ADD to STORY</button>
-            </div>
-    </form>
-    <form method="GET" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>/delete"> 
-      <div class="form-group row">
-          <div class="col-sm-8">
-            <button type="submit" class="btn btn-primary ">DELETE</button>
-          </div>
-  </form>
-  <form method="POST" action="/stories/<%= contribution['story_id'] %>/contributions/likes"> 
-    <div class="form-group row">
-      <input type="hidden" name=<%= contribution['id'] %>
-        <div class="col-sm-8">
-          <button type="submit" class="btn btn-primary ">LIKES</button>
+      <!-- link for emoticon database used -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+<!-- What they set up for us: don't change. SASS related * redundant?-->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  </head>
+
+
+  <body >
+
+    <header>
+      <!-- - include('partials_header')  -->
+
+<!-- IGNORE - hard printed header to check view -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/story">
+          <img src='https://www.livingmags.info/wp-content/uploads/final-insp-in-iso-03-1.png' width="50" height="50"> Ten Word Tale
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Start a Story</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contribute to a Story</a>
+            </li>
+            </ul>
         </div>
-</form>
-<p> <%= contribution.likes %> cc </p>
-    
-<% } %> 
+        <p>
+          <a href="/login">
+            <button class="btn btn-secondary" value='delete'>Login
+            </button>
+          </a>
+          <a href="/register">
+            <button class="btn btn-secondary" value='delete'>Register
+            </button>
+          </a>
+        </p>
+      </nav>
+  <!-- header bar ends here -->
+
+    </header>
+
+
+
+    <main style="background-color:#7CAF22;" >
+      <h2>Contribute to a story</h2>
+      <br>
+      <br>
+
+      <h4><%= data[0]['title']%></h4>
+        <br>
+        <br>
+
+        <% for (let contribution of data) { %>
+          <% if ( SignedInUser !== contribution.creator_id) { %>
+            <article class="contributions-box;"  style="width: 60em;border: 5px solid black">
+              <header>
+                <h5><%=contribution.name %> suggests: </h5>
+                <p>📖</p>
+              </header>
+  
+              <p><%= contribution.content %></p>
+              <br>
+  
+              <footer>
+                <p><%= contribution.created_at %></p>
+          <!-- LIKE button for when user.publish_date IS NULL -->
+                  <form method="POST" action="/stories/<%=contribution['story_id'] %>/contributions/<%= contribution['contribution_id'] %>">
+                    <div class="form-group row">
+                      <div class="col-sm-8">
+                        <button type="submit" class="btn btn-warning ">ADD to STORY</button>
+                      </div>
+                  </form>
+                  <form method="POST" action="/stories/<%=contribution['story_id'] %>/contributions/<%= contribution['contribution_id']%>/delete">
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                          <button type="submit" class="btn btn-danger ">DELETE</button>
+                        </div>
+                    </div>
+                </form>
+              </footer>
+            </article>
+          <br>
+          <br>
+        <%} else {%>
+          <article class="contributions-box;"  style="width: 60em;border: 5px solid black">
+            <header>
+              <h5><%=contribution.name %> suggests: </h5>
+              <p>📖</p>
+            </header>
+
+            <p><%= contribution.content %></p>
+            <br>
+
+            <footer>
+              <p><%= contribution.created_at %></p>
+        <!-- LIKE button for when user.publish_date IS NULL -->
+              <button class="btn btn-block btn-primary" style="width:5em;">
+                  <i class="fa fa-thumbs-up"> </i>
+              </button>
+            </footer>
+          </article>
+        <br>
+        <br>
+        <%}%>
+      <% } %>
+
+
+
+    </main>
+       <!-- - include('partials_footer') 
+  </body>
+</html> -->
+
+
+
+
+
 
 

@@ -2,6 +2,26 @@
 
 <% for (let contribution of data) { %>
     <h3><%= contribution['content'] %> <%= contribution['likes'] %> ...id=<%= contribution['id'] %></h3>
+    <form method="POST" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>">
+        <div class="form-group row">
+            <div class="col-sm-8">
+              <button type="submit" class="btn btn-primary ">ADD to STORY</button>
+            </div>
+    </form>
+    <form method="GET" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>/delete">
+      <div class="form-group row">
+          <div class="col-sm-8">
+            <button type="submit" class="btn btn-primary ">DELETE</button>
+          </div>
+  </form>
+
+<% } %>
+
+
+<h1>This is contributions page</h1>
+
+<% for (let contribution of data) { %>
+    <h3><%= contribution['content'] %> <%= contribution['likes'] %> ...id=<%= contribution['id'] %></h3>
     <form method="POST" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>"> 
         <div class="form-group row">
             <div class="col-sm-8">
@@ -14,7 +34,71 @@
             <button type="submit" class="btn btn-primary ">DELETE</button>
           </div>
   </form>
+  <form method="POST" action="/stories/<%= contribution['story_id'] %>/contributions/likes"> 
+    <div class="form-group row">
+      <input type="hidden" name=<%= contribution['id'] %>
+        <div class="col-sm-8">
+          <button type="submit" class="btn btn-primary ">LIKES</button>
+        </div>
+</form>
+<p> <%= contribution.likes %> cc </p>
     
 <% } %> 
 
 
+
+
+
+-------what adele needs in contributions-----
+DB QUERY NEEDED (try):
+`SELECT content, created_at, users.name
+FROM contributions
+JOIN users ON users.id = contributor_id;`
+
+NOTE: When LIKE button is pressed, contributions.likes increases by 1
+
+
+
+<!-- INSERT IF STATEMENT -->
+when not creator
+LIKE button for when user.publish_date IS NULL -->
+<!-- <button class="btn btn-block btn-primary" style="width:5em;">
+    <i class="fa fa-thumbs-up"> </i> -->
+// when creator of story
+<!-- SUBMIT && DELETE buttons for when user.publish_date IS NOT NULL -->
+    <!-- <form method="POST" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>">
+      <div class="form-group row">
+          <div class="col-sm-8">
+            <button type="submit" class="btn btn-warning ">ADD to STORY</button>
+          </div>
+  </form>
+  <form method="GET" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>/delete">
+    <div class="form-group row">
+        <div class="col-sm-8">
+          <button type="submit" class="btn btn-danger ">DELETE</button>
+        </div>
+</form>
+</button>
+</footer>
+</article>
+<br>
+<br>
+
+<article class="contributions-box;"  style="width: 60em;border: 5px solid black">
+<header>
+<h5> Abdul suggests: </h5>
+<p>📖</p>
+</header>
+
+<p>" You should have just copy/ pasted it to your feet "</p>
+<br>
+
+<footer>
+<p>Just Now</p>
+<button class="btn btn-block btn-primary" style="width:5em;">
+  <i class="fa fa-thumbs-up"> </i>
+</button>
+</footer>
+</article>
+<br>
+<br>
