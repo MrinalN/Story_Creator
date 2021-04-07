@@ -7,7 +7,7 @@ VALUES ('The Lost Shoe', 'Once I lost my shoe when walking through the forest.',
 --Zigazigaza's story 1
 ('Chicken Scratch', '"Are you friggen kidding me?" yelled James at the monkey"','2020-01-12T08:00:00.000Z', null, 5),
 --Brontë3's story 2 published.
-('Zorro', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta, augue in fermentum vulputate, felis ligula auctor nunc, non rhoncus ex nisl sit amet ligula. Aliquam vehicula sem at purus luctus semper. Morbi pulvinar eu turpis at lacinia. Sed a enim pellentesque, porttitor lacus at, vulputate nisl. Etiam et ligula eget dolor tempus gravida sit amet ac risus. Sed sollicitudin facilisis consequat. Mauris ex dolor, vulputate ut velit in, luctus pharetra tortor. Fusce pulvinar, risus eget scelerisque bibendum, augue sem interdum massa, a convallis dui sem quis lacus. Aliquam erat volutpat. Mauris quis commodo lacus. Nunc turpis nisl, semper at sapien sed, viverra luctus elit. Fusce placerat pretium orci. Integer enim orci, tristique sit amet iaculis ut, eleifend eu turpis.', '2019-12-12T08:00:00.000Z','2019-12-14T08:00:00.000Z', 2),
+('Zorro', 'There was a masked man named Zorro and no one knew who he was. Except his dog. His dog, Torro, could tell it was him by his scent. So whenever Zorro was doing hero work he had to leave his dog in a kennel across town. And Torro still resents him for that. He is planning to bite his face off soon.','2019-12-12T08:00:00.000Z','2019-12-14T08:00:00.000Z', 2),
 --Zigazigaza's story 2
 ('The Cheeseburger Festival', 'Everything was going wrong...and the competition was just about to ','2020-01-12T08:00:00.000Z', null, 5),
 --Zigazigaza's story 3 published.
