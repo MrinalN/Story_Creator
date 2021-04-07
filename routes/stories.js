@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   // if (!req.session.user_id) {
   //   res.redirect('/login');
   // } else {
-    db.query(`SELECT title, description, created_at, publish_date, users.name FROM stories
+    db.query(`SELECT title, description, created_at, publish_date, users.name,stories.id FROM stories
               JOIN users ON users.id = creator_id;`)
     .then(data => {
     const data1 = data.rows;
@@ -47,6 +47,7 @@ router.get("/:stories_id/contributions", (req, res) => {
   .then(data => {
   let data1 = data['rows'];
   temps = {data:data1};
+  console.log(data1)
   res.render("contributions",temps);
   })
   .catch(err => {
@@ -96,6 +97,22 @@ router.get("/:stories_id/contributions/:contributions_id/delete", (req, res) => 
     .status(500)
     .json({ error: err.message });
     });
+});
+
+// test with req.session.req.session.user_id
+router.post("/stories/:story_id/contributions/likes", (req, res) => {
+  console.log(req.body)
+  // db.query(`INSERT INTO like_table (contribution_id,user_id)
+  //           VALUES(${req.params.contribution_id},1)                   
+  //             RETURNING *;`)
+  // .then(data => {
+  //   console.log('liked')
+  // })
+  // .catch(err => {
+  // res
+  // .status(500)
+  // .json({ error: err.message });
+  // });
 });
 
   return router;

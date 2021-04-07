@@ -14,6 +14,14 @@
             <button type="submit" class="btn btn-primary ">DELETE</button>
           </div>
   </form>
+  <form method="POST" action="/stories/<%= contribution['story_id'] %>/contributions/likes"> 
+    <div class="form-group row">
+      <input type="hidden" name=<%= contribution['id'] %>
+        <div class="col-sm-8">
+          <button type="submit" class="btn btn-primary ">LIKES</button>
+        </div>
+</form>
+<p> <%= contribution.likes %> cc </p>
     
 <% } %> 
 
