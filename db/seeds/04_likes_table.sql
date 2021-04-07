@@ -1,9 +1,9 @@
 -----Last updated Apr 7th - Adele --
 
-INSERT INTO like_table (contribution_id,user_id)
--- Alice likes first ( I thought my laces ) contribution
+INSERT INTO likes_table (contribution_id,user_id)
+-- AliceTheCamelCase likes first ( I thought my laces ) contribution
 VALUES(1,1),
---Bob likes first
+--Brontë3 likes first
 (1,2),
---Alice likes second
+--AliceTheCamelCase likes second
 (2,1);
