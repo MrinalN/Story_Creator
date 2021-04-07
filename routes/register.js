@@ -19,12 +19,9 @@ router.post("/", (req, res) => {
     db.query(`SELECT email, password FROM users;`)
     .then(data => {
         let userobj = data['rows']
-        console.log('aaaaaaaaaaaaaa',userobj)
         for (let user of userobj ) {
           if (user.email === req.body.email) {
-            console.log('bbbbbbbbbbbbbb',user.email)
             res.status(404).send('Email already exists');
-          
           } 
         }  
         db.query(`INSERT INTO users (name, email, password, creator_status)
