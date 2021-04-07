@@ -39,9 +39,20 @@ body {
   justify-content: space-between;
 }
 
+#story-title {
+  font-style: italic;
+}
+
+//WANT - shorten/ cut off amount of words to fit within box
+// #story-description {
+//  height: 7rem;
+//  overflow-wrap: break-word !important;
+// }
+
 .story-box footer {
   display: flex;
   justify-content: space-between;
+  font-size: medium;
 }
 
 .invis {
