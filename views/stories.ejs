@@ -5,6 +5,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Fonts  -->
+  <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&family=Raleway:ital,wght@0,400;0,500;0,900;1,900&display=swap" rel="stylesheet">
 
 <!-- Internal stylesheet. Link must stay above Bootstrap. -->
   <link rel="stylesheet" href="/styles/stories.css">
@@ -60,7 +62,8 @@
       <form>
       <article class="story-box" class=<%=story.id%>>
         <header>
-          <h5 ><%=story.title%></h5> <p class='invis'>3</p>
+          <!-- removed stories id -->
+          <h5 ><%=story.title%></h5>
           <!-- "In process" will change as an if statement when "published" -->
           <p>In process 📖 </p>
         </header>

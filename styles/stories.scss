@@ -1,10 +1,22 @@
+
 body {
-  background: #7CAF22;
+  background:#0072BC !important;
 
 }
 
 .story-box {
-  border: 5px solid black;
+  border: 2px inset;
+
+}
+
+.story-box header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.story-box footer {
+  display: flex;
+  justify-content: space-between;
 }
 
 .invis {
