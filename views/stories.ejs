@@ -52,7 +52,7 @@
       <h3>Check out a story!</h3>
       <h6> 📖 in progress. 📕 published!</h6>
         <br>
-        <br>   
+        <br>
    <% for (let story of StoriesDB) { %>
     <% if (story.publish_date === null) { %>
       <article class="story-box">
@@ -96,6 +96,7 @@
     </main>
        <!-- - include('partials_footer')  -->
   </body>
+  <%- include('partials/_footer') %>
 </html>
 
 
@@ -106,5 +107,5 @@
       window.location.replace(url)
    });
 });
-  
+
 </script>
