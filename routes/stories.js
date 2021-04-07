@@ -49,11 +49,24 @@ router.get("/:stories_id/contributions", (req, res) => {
             JOIN stories ON story_id = stories.id
             WHERE story_id = ${req.params.stories_id}`)
   .then(data => {
-  let userid = req.session.user_id;
-  let data1 = data['rows'];
-  temps = {data:data1, SignedInUser: userid};
-  console.log(data1)
-  res.render("contributions",temps);
+    let userid = req.session.user_id;
+    let data1 = data['rows'];
+    db.query(`SELECT COUNT(id) as likes,contribution_id FROM like_table
+              GROUP BY contribution_id;`)
+    .then(data2 => { 
+      console.log(data2['rows'])
+      let likes = data2['rows']
+      for (let con_params of data1) {
+        for (let like of likes) {
+          if(con_params['contribution_id'] === like['contribution_id']) {
+            con_params['likes'] =  like['likes']
+         }
+        }
+      }
+      temps = { data : data1, SignedInUser : userid};
+      console.log(data1)
+      res.render("contributions(trial)",temps);
+    })
   })
   .catch(err => {
   res
@@ -103,21 +116,23 @@ router.post("/:stories_id/contributions/:contributions_id/delete", (req, res) =>
     .json({ error: err.message });
     });
 });
+
 //THIS IS TO ADD TO THE LIKES TABLE
-// test with req.session.req.session.user_id
-router.post("/stories/:story_id/contributions/likes", (req, res) => {
-  console.log(req.body)
-  // db.query(`INSERT INTO like_table (contribution_id,user_id)
-  //           VALUES(${req.params.contribution_id},1)                   
-  //             RETURNING *;`)
-  // .then(data => {
-  //   console.log('liked')
-  // })
-  // .catch(err => {
-  // resgit branch
-  // .status(500)
-  // .json({ error: err.message });
-  // });
+// test with req.session.req.session.user_id NOT DONE WITHOUT LOGINNNNNNNNNNNNNNNN
+router.post("/:stories_id/contributions/:contributions_id/likes", (req, res) => {
+  db.query(`INSERT INTO like_table (contribution_id,user_id)
+            VALUES(${req.params.contributions_id},1)                   
+            RETURNING *;`)
+  .then(data => {
+    console.log('liked')
+    console.log(data['rows'])
+    res.redirect(`/stories/${req.params.stories_id}/contributions`)
+  })
+  .catch(err => {
+   res
+  .status(500)
+  .json({ error: err.message });
+  });
 });
 
   return router;
