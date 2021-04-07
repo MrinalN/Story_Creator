@@ -6,10 +6,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<!-- Internal stylesheet. Link must stay above Bootstrap. -->
+  <link rel="stylesheet" href="/styles/stories.css">
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="/styles/stories.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <title>Stories Main Page</title>
@@ -52,7 +54,7 @@
       <h3>Check out a story!</h3>
       <h6> 📖 in progress. 📕 published!</h6>
         <br>
-        <br>   
+        <br>
    <% for (let story of StoriesDB) { %>
     <% if (story.publish_date === null) { %>
       <form>
@@ -100,7 +102,7 @@
   </body>
 </html>
 
-<!-- 
+<!--
 <script>
   $( document ).ready(function() {
     $( ".story-box " ).click(function() {
@@ -110,5 +112,5 @@
       // window.location.replace(url)
    });
 });
-  
+
 </script> -->
