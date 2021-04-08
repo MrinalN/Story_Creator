@@ -19,12 +19,9 @@ body {
 }
 
 .page-head {
-  // padding: 1em;
-  /* margin-bottom: 0.5em; */
   display: flex;
   flex-direction: column;
   width: 80%;
-  // margin: auto;
 }
 
 .contributions-box {
@@ -52,35 +49,17 @@ font-size: 60px;
 
 
 .contributions-box footer {
-  // display: flex;
-  // justify-content: space-between;
   font-size: medium;
 }
 
-#book-icon {
-  width: 200px;
-  height: 120px;
-}
-// #buttons {
-//   border-style: dotted;
-//   border: crimson;
-// //   display: flex;
-// //   flex-direction: column-reverse;
-// //   float:right;
-// }
 
 .col-sm-8 {
   display: flex;
   justify-content: flex-end;
-  // border-style: dotted;
-  // border-color: chartreuse;
-// // margin: .2em;
 }
 
 div .form-group.row {
   display: flex;
   justify-content: flex-end;
-  // border-style: dotted;
-  // border-color: blueviolet;
 }
-//style="width: 60em;border: 5px solid black"
+
