@@ -53,13 +53,16 @@
 
 
     <main>
-      <h2>Contribute to a story</h2>
+      <div class="page-head">
+      <h3>Contribute to:  </h3>
       <br>
+      <h1><%= data[0]['title']%></h1>
       <br>
-
+      </div>
+<!--
       <h4><%= data[0]['title']%></h4>
         <br>
-        <br>
+        <br> -->
 
         <% for (let contribution of data) { %>
           <% if ( SignedInUser !== contribution.creator_id) { %>
