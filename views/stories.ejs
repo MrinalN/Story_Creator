@@ -5,18 +5,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Fonts  -->
+  <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&family=Raleway:ital,wght@0,400;0,500;0,900;1,900&display=swap" rel="stylesheet">
+
+<!-- Internal stylesheet. Link must stay above Bootstrap. -->
+  <link rel="stylesheet" href="/styles/stories.css" type="text/css">
+
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="/styles/stories.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <title>Stories Main Page</title>
 </head>
   <body>
 
-    <header>
+    <header id=#headerbar>
  <!-- < include('partials/_header') > -->
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,30 +41,34 @@
         </div>
         <p>
           <a href="/login">
-            <button class="btn btn-secondary" value='delete'>Login
+            <button class="btn btn-warning" value='delete'>Login
             </button>
           </a>
           <a href="/register">
-            <button class="btn btn-secondary" value='delete'>Register
+            <button class="btn btn-warning" value='delete'>Register
             </button>
           </a>
         </p>
       </nav>
-
+    </header>
 <!-- header bar ends here -->
-    <main style="margin:1em;" >
-      <h3>Check out a story!</h3>
-      <h6> 📖 in progress. 📕 published!</h6>
-        <br>
-        <br>
+
+    <main>
+      <!-- AN added a div -->
+      <div class="page-head">
+        <h1>Check out a story!</h1>
+        <h6> 📖 Add to stories in progress. </h6>
+        <h6> 📕 Read published stories!</h6>
+      </div>
+
+
    <% for (let story of StoriesDB) { %>
     <% if (story.publish_date === null) { %>
-      <form>
       <article class="story-box" class=<%=story.id%>>
         <header>
-          <h5 ><%=story.title%></h5> <p class='invis'>3</p>
+          <h5 id="story-title"><%=story.title%></h5>
           <!-- "In process" will change as an if statement when "published" -->
-          <p>In process 📖 </p>
+          <p>In progress 📖 </p>
         </header>
         <p><%=story.description%></p>
         <footer>
@@ -75,13 +83,13 @@
     <% } else { %>
       <article class="story-box">
         <header>
-          <h5><%=story.title%></h5> <p class='invis'><%=story.id%></p>
+          <h5 id="story-title"><%=story.title%></h5>
           <!-- "In process" will change as an if statement when "published" -->
-          <p>Completed 📕 </p>
+          <p>Published 📕 </p>
         </header>
-        <p ><%=story.description%></p>
+        <p id="story-description"><%=story.description%></p>
         <footer>
-          <p><%=story.created_at%>....................by <%=story.name%></p>
+          <p><%=story.created_at%></p>
           <p>by <%=story.name%></p>
         </footer>
       </article>
@@ -93,23 +101,8 @@
 
     </main>
 
-    <!-- <- include('partials/_footer') > -->
-
-    </main>
-       <!-- - include('partials_footer')  -->
   </body>
-  <%- include('partials/_footer') %>
+    <%- include('partials/_footer') %>
 </html>
 
-<!--
-<script>
-  $( document ).ready(function() {
-    $( ".story-box " ).click(function() {
-      let id = $(".invis").text()
-      alert(id)
-      // let url= `/stories/${id}`
-      // window.location.replace(url)
-   });
-});
 
-</script>
