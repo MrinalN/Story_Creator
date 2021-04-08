@@ -66,7 +66,8 @@
 
         <% for (let contribution of data) { %>
           <% if ( SignedInUser !== contribution.creator_id) { %>
-            <article class="contributions-box;"  style="width: 60em;border: 5px solid black">
+          <div class="contributions-box;">
+            <article>
               <header>
                 <h5><%=contribution.name %> suggests: </h5>
                 <p>📖</p>
@@ -77,7 +78,7 @@
 
               <footer>
                 <p><%= contribution.created_at %></p>
-          <!-- LIKE button for when user.publish_date IS NULL -->
+            <!-- LIKE button for when user.publish_date IS NULL -->
                   <form method="POST" action="/stories/<%=contribution['story_id'] %>/contributions/<%= contribution['contribution_id'] %>">
                     <div class="form-group row">
                       <div class="col-sm-8">
@@ -90,31 +91,35 @@
                           <button type="submit" class="btn btn-danger ">DELETE</button>
                         </div>
                     </div>
-                </form>
-              </footer>
+                  </form>
+                </footer>
             </article>
+          </div>
           <br>
           <br>
+
         <%} else {%>
-          <article class="contributions-box;"  style="width: 60em;border: 5px solid black">
-            <header>
-              <h5><%=contribution.name %> suggests: </h5>
-              <p>📖</p>
-            </header>
+          <div class="contributions-box;">
+            <article>
+              <header>
+                <h5><%=contribution.name %> suggests: </h5>
+                <p>📖</p>
+              </header>
 
             <p><%= contribution.content %></p>
             <br>
 
             <footer>
               <p><%= contribution.created_at %></p>
-        <!-- LIKE button for when user.publish_date IS NULL -->
+              <!-- LIKE button for when user.publish_date IS NULL -->
               <button class="btn btn-block btn-primary" style="width:5em;">
-                  <i class="fa fa-thumbs-up"> </i>
+                <i class="fa fa-thumbs-up"> </i>
               </button>
             </footer>
-          </article>
-        <br>
-        <br>
+            </article>
+          </div>
+          <br>
+          <br>
         <%}%>
       <% } %>
 
