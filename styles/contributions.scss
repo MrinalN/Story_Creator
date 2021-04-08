@@ -12,6 +12,7 @@ body {
   margin-right: 1em;
 }
 
+
 .page-head h1 {
   font-family: 'New Tegomin', serif;
   margin-left: 2em;
@@ -26,7 +27,7 @@ body {
   // margin: auto;
 }
 
-div .contributions-box {
+.contributions-box {
   border-style: solid;
   border-radius: 7px;
   padding: 1em;
@@ -39,6 +40,41 @@ div .contributions-box {
 
 }
 
+.contributions-box header{
+display: flex;
+justify-content: space-between;
+}
 
+.contributions-box footer {
+  // display: flex;
+  // justify-content: space-between;
+  font-size: medium;
+}
 
+#book-icon {
+  width: 200px;
+  height: 120px;
+}
+// #buttons {
+//   border-style: dotted;
+//   border: crimson;
+// //   display: flex;
+// //   flex-direction: column-reverse;
+// //   float:right;
+// }
+
+.col-sm-8 {
+  display: flex;
+  justify-content: flex-end;
+  // border-style: dotted;
+  // border-color: chartreuse;
+// // margin: .2em;
+}
+
+div .form-group.row {
+  display: flex;
+  justify-content: flex-end;
+  // border-style: dotted;
+  // border-color: blueviolet;
+}
 //style="width: 60em;border: 5px solid black"

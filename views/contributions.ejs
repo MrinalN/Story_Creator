@@ -26,7 +26,7 @@
 <!-- IGNORE - hard printed header to check view -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/story">
-          <img src='https://www.livingmags.info/wp-content/uploads/final-insp-in-iso-03-1.png' width="50" height="50"> Ten Word Tale
+          <img src='https://www.livingmags.info/wp-content/uploads/final-insp-in-iso-03-1.png' width="60" height="60"> Ten Word Tale
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -59,15 +59,13 @@
       <h1><%= data[0]['title']%></h1>
       <br>
       </div>
-<!--
-      <h4><%= data[0]['title']%></h4>
-        <br>
-        <br> -->
 
         <% for (let contribution of data) { %>
           <% if ( SignedInUser !== contribution.creator_id) { %>
-          <div class="contributions-box;">
+          <div class="contributions-box">
+
             <article>
+
               <header>
                 <h5><%=contribution.name %> suggests: </h5>
                 <p>📖</p>
@@ -80,17 +78,22 @@
                 <p><%= contribution.created_at %></p>
             <!-- LIKE button for when user.publish_date IS NULL -->
                   <form method="POST" action="/stories/<%=contribution['story_id'] %>/contributions/<%= contribution['contribution_id'] %>">
+
                     <div class="form-group row">
                       <div class="col-sm-8">
-                        <button type="submit" class="btn btn-warning ">ADD to STORY</button>
+                        <button type="submit" class="btn btn-success ">ADD to STORY</button>
                       </div>
+                    </div>
+
                   </form>
                   <form method="POST" action="/stories/<%=contribution['story_id'] %>/contributions/<%= contribution['contribution_id']%>/delete">
-                    <div class="form-group row">
+
+                    <div class="form-group row" id="buttons">
                         <div class="col-sm-8">
                           <button type="submit" class="btn btn-danger ">DELETE</button>
                         </div>
                     </div>
+
                   </form>
                 </footer>
             </article>
@@ -99,7 +102,7 @@
           <br>
 
         <%} else {%>
-          <div class="contributions-box;">
+          <div class="contributions-box">
             <article>
               <header>
                 <h5><%=contribution.name %> suggests: </h5>
@@ -112,9 +115,11 @@
             <footer>
               <p><%= contribution.created_at %></p>
               <!-- LIKE button for when user.publish_date IS NULL -->
+              <div class="form-group row" id="buttons">
               <button class="btn btn-block btn-primary" style="width:5em;">
                 <i class="fa fa-thumbs-up"> </i>
               </button>
+              </div>
             </footer>
             </article>
           </div>
