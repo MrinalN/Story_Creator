@@ -52,6 +52,7 @@
       </nav>
     </header>
 <!-- header bar ends here -->
+
     <main>
       <!-- AN added a div -->
       <div class="page-head">
@@ -59,6 +60,7 @@
         <h6> 📖 Add to stories in progress. </h6>
         <h6> 📕 Read published stories!</h6>
       </div>
+
 
    <% for (let story of StoriesDB) { %>
     <% if (story.publish_date === null) { %>
@@ -102,4 +104,5 @@
   </body>
     <%- include('partials/_footer') %>
 </html>
+
 
