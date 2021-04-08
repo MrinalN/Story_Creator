@@ -81,7 +81,7 @@ router.get("/:stories_id/contributions", (req, res) => {
   .then(data => {
     let userid = req.session.user_id;
     let data1 = data['rows'];
-    db.query(`SELECT COUNT(id) as likes,contribution_id FROM like_table
+    db.query(`SELECT COUNT(id) as likes,contribution_id FROM likes_table
               GROUP BY contribution_id;`)
     .then(data2 => {
       let likes = data2['rows']

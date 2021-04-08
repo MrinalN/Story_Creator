@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Contributions Page</title>
-    <!-- from Bootstrap docs: Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Fonts  -->
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&family=Raleway:ital,wght@0,400;0,500;0,900;1,900&display=swap" rel="stylesheet">
 
-      <!-- link for emoticon database used -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <!-- Internal stylesheet. Link must stay above Bootstrap. -->
+    <link rel="stylesheet" href="/styles/contributions.css" type="text/css">
+    <link rel="stylesheet" href="/styles/footer.css" type="text/css">
 
-<!-- What they set up for us: don't change. SASS related * redundant?-->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-
-  <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+
+    <title>Contributions Page</title>
   </head>
 
 
@@ -31,7 +26,7 @@
 <!-- IGNORE - hard printed header to check view -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/story">
-          <img src='https://www.livingmags.info/wp-content/uploads/final-insp-in-iso-03-1.png' width="50" height="50"> Ten Word Tale
+          <img src='https://www.livingmags.info/wp-content/uploads/final-insp-in-iso-03-1.png' width="60" height="60"> Ten Word Tale
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -45,16 +40,11 @@
             </li>
             </ul>
         </div>
-        <p>
-          <a href="/login">
-            <button class="btn btn-secondary" value='delete'>Login
-            </button>
-          </a>
-          <a href="/register">
-            <button class="btn btn-secondary" value='delete'>Register
-            </button>
-          </a>
-        </p>
+        <div class="logout-phrase">
+        <h5>Welcome back, Brontë3! </h5>
+        <form method="GET" action="/logout"><button class="btn btn-warning" value='delete'>Logout</button>
+        </form>
+        </div>
       </nav>
   <!-- header bar ends here -->
 
@@ -62,54 +52,71 @@
 
 
 
-    <main style="background-color:#7CAF22;" >
-      <h2>Contribute to a story</h2>
+    <main>
+      <div class="page-head">
+      <h3>Contributions for:  </h3>
       <br>
+      <h1><%= data[0]['title']%></h1>
       <br>
-
-      <h4><%= data[0]['title']%></h4>
-        <br>
-        <br>
+      </div>
 
         <% for (let contribution of data) { %>
-          <% if ( SignedInUser === contribution.creator_id) { %>
-            <article class="contributions-box;"  style="width: 60em;border: 5px solid black">
+          <% if ( SignedInUser !== contribution.creator_id) { %>
+          <div class="contributions-box">
+
+            <article>
+
               <header>
                 <h5><%=contribution.name %> suggests:  </h5>
                 <p>📖 .....likes:<%= contribution['likes']%></p>
               </header>
-  
-              <p><%= contribution.content %></p>
+
+              <h4 style="font-style: italic;"><%= contribution.content %></h4>
               <br>
-  
+
               <footer>
-                <p><%= contribution.created_at %></p>
-          
-                  <form method="POST" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['contribution_id'] %>">
+                <!-- <p><%= contribution.created_at %></p> -->
+            <!-- LIKE button for when user.publish_date IS NULL -->
+                  <form method="POST" action="/stories/<%=contribution['story_id'] %>/contributions/<%= contribution['contribution_id'] %>">
+
                     <div class="form-group row">
                       <div class="col-sm-8">
-                        <button type="submit" class="btn btn-warning ">ADD to STORY</button>
+                        <button type="submit" class="btn btn-success ">ADD to STORY</button>
                       </div>
+                    </div>
+
                   </form>
                   <form method="POST" action="/stories/<%=contribution['story_id'] %>/contributions/<%= contribution['contribution_id']%>/delete">
-                    <div class="form-group row">
+
+                    <div class="form-group row" id="buttons">
                         <div class="col-sm-8">
                           <button type="submit" class="btn btn-danger ">DELETE</button>
                         </div>
                     </div>
-                </form>
-              </footer>
+
+                  </form>
+                </footer>
             </article>
+          </div>
           <br>
           <br>
+
         <%} else {%>
-          <article class="contributions-box;"  style="width: 60em;border: 5px solid black">
+          <div class="contributions-box">
+        <!-- AN Apr8 - Accepted INCOMING and CURRENT changes here -->
+            <article>
+              <header>
+                <h5><%=contribution.name %> suggests: </h5>
+                <p>📖</p>
+              </header>
+
+    <!-- <article class="contributions-box;"  style="width: 60em;border: 5px solid black">
             <header>
               <h5><%=contribution.name %> suggests: </h5>
               <p>📖 .....likes:<%= contribution['likes']%></p>
-            </header>
+            </header> -->
 
-            <p><%= contribution.content %></p>
+            <h4><%= contribution.content %></h4>
             <br>
 
             <footer>
@@ -117,22 +124,24 @@
         <!-- LIKE button for when user.publish_date IS NULL -->
              <form type="submit" method="POST" action="/stories/<%=contribution['story_id']%>/contributions/<%=contribution['contribution_id']%>/likes">
               <button class="btn btn-block btn-primary" style="width:5em;">
-                  <i class="fa fa-thumbs-up"> </i>
+                <i class="fa fa-thumbs-up"> </i>
               </button>
-            </form>  
+              </div>
+            </form>
             </footer>
-          </article>
-        <br>
-        <br>
+            </article>
+          </div>
+          <br>
+          <br>
         <%}%>
       <% } %>
 
 
 
     </main>
-       <!-- - include('partials_footer') 
   </body>
-</html> -->
+  <%- include('partials/_footer') %>
+</html>
 
 
 
