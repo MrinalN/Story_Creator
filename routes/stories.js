@@ -21,13 +21,13 @@ router.get("/", (req, res) => {
 });
 
 // REDIRECTS TO STORY SPECIFIC PAGE AND RENDERS DATA FROM DATABASE
-router.get("/:stories_id", (req, res) => {
+  router.get("/:stories_id", (req, res) => {
     db.query(`SELECT title, description, id as story_id, creator_id FROM stories
               WHERE id = ${req.params.stories_id};`)
       .then(data => {
         const story = data.rows;
         console.log(story)
-        let user = req.session.user_id
+        let user = req.session.user_id;
         console.log(user)
         const templateVars = {story : story,
                               user :user};
