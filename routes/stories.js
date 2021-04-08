@@ -5,15 +5,11 @@ module.exports  = (db) => {
 
 // PRINTS TITLE LIST TO MAIN PAGE
 router.get("/", (req, res) => {
-  // if (!req.session.user_id) {
-  //   res.redirect('/login');
-  // } else {
     db.query(`SELECT title, description, created_at, publish_date, users.name,stories.id FROM stories
               JOIN users ON users.id = creator_id;`)
     .then(data => {
     const data1 = data.rows;
     const templateVars = { StoriesDB : data1};
-    console.log(data1)
     res.render("stories",templateVars); //Adele changing here
     })
     .catch(err => {
@@ -26,11 +22,15 @@ router.get("/", (req, res) => {
 
 // REDIRECTS TO STORY SPECIFIC PAGE AND RENDERS DATA FROM DATABASE
 router.get("/:stories_id", (req, res) => {
-    db.query(`SELECT title, description FROM stories
+    db.query(`SELECT title, description, id as story_id, creator_id FROM stories
               WHERE id = ${req.params.stories_id};`)
       .then(data => {
         const story = data.rows;
-        const templateVars = {story : story};
+        console.log(story)
+        let user = req.session.user_id
+        console.log(user)
+        const templateVars = {story : story,
+                              user :user};
         res.render("stories_id",templateVars);
       })
       .catch(err => {
@@ -39,6 +39,37 @@ router.get("/:stories_id", (req, res) => {
           .json({ error: err.message });
       });
 });
+
+router.post("/:stories_id/publish", (req, res) => {
+  db.query(`UPDATE stories
+            SET publish_date = '2020-05-12T08:00:00.000Z'
+            WHERE id = ${req.params.stories_id};`)
+    .then(data => {
+      res.redirect('/stories');
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
+router.post("/:stories_id/AddToContribution", (req, res) => {
+  let user_id = req.session.user_id
+    db.query(`INSERT INTO contributions (story_id, contributor_id, content, created_at)
+              VALUES(${req.params.stories_id},${user_id},'${req.body.story}','2020-05-12T08:00:00.000Z')
+              RETURNING *;`)
+      .then(data => {
+        console.log(data.rows)
+        res.redirect(`/stories/${req.params.stories_id}/contributions`);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+});
+
 
 
 router.get("/:stories_id/contributions", (req, res) => {

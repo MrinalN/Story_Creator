@@ -66,7 +66,7 @@
     <% if (story.publish_date === null) { %>
       <article class="story-box" class=<%=story.id%>>
         <header>
-          <h5 id="story-title"><%=story.title%></h5>
+        <a href="/stories/<%= story.id%>"> <h5 id="story-title"><%=story.title%></h5> </a>
           <!-- "In process" will change as an if statement when "published" -->
           <p>In progress 📖 </p>
         </header>
@@ -83,7 +83,7 @@
     <% } else { %>
       <article class="story-box">
         <header>
-          <h5 id="story-title"><%=story.title%></h5>
+          <a href="/stories/<%= story.id%>"><h5 id="story-title"><%=story.title%></h5></a> 
           <!-- "In process" will change as an if statement when "published" -->
           <p>Published 📕 </p>
         </header>
