@@ -11,12 +11,14 @@ div.large-container {
 
   div.stories {
 
-  background-color: grey;
+  // background-color: grey;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 70%;
   height: 10%;
+  align-items: center;
+  margin-left: 140px;
 
   }
 

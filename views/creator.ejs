@@ -1,3 +1,5 @@
+<!-- Abdul will add button methods here -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,25 +42,24 @@
   <main style="margin: 1em">
     <div class='large-container'>
       <!-- This will be where the stoies are rended too-->
-    <div class="stories" id='stories'>
-      <p>Hello this is a rando, story about nothing! It will</p>
-      <p>Hello this is a rando, story about nothing! It will</p>
-      <p>Hello this is a rando, story about nothing! It will</p>
-      <p>Hello this is a rando, story about nothing! It will</p>
-      <p>Hello this is a rando, story about nothing! It will</p>
-    </div>
+    <!-- <div class="stories" id='stories'> -->
+
+    <!-- </div> -->
       <form method="POST" action="/creator" id='CreateStory'>
-        <div>
-        <button type="submit" class="btn btn-primary" id="submit-story" method='POST' action='/story'>Im Done! Publish!</button>
+        <div class="stories">
+          <textarea rows="10" cols="100" name="story" form="edit-story" style="margin-top: 20px;">
+            Be creative!
+          </textarea>
+          <br>
+        <button type="submit" class="btn btn-success" id="submit-story" method='POST' action='/stories'>Complete Story!</button>
       </div>
 </form>
 </div>
+
 <div class='bottom-box'>
-  <textarea rows="2" cols="50" name="story" form="edit-story" style="margin-top: 20px;">
-    Be creative!
-  </textarea>
+
   <form method='POST' action='#'>
-      <button id='done-button' class="btn btn-danger">Im Done!</button>
+      <button id='done-button' class="btn btn-danger">Add to Your Story</button>
   </form>
   <a>
 

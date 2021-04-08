@@ -6,7 +6,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <!--Internal styling-->
-  <link rel="stylesheet" href="styles/creator.css">
+  <link rel="stylesheet" href="styles/stories_id.css">
   <title>Ten Word Tales</title>
 </head>
 
@@ -53,7 +53,7 @@
     <% } %>
 </div>
 <div class='bottom-box'>
-  <form method='POST' action='/stories/<%= story[0]["story_id"] %>/AddToContribution' > 
+  <form method='POST' action='/stories/<%= story[0]["story_id"] %>/AddToContribution' >
   <textarea rows="2" cols="50" name="story" style="margin-top: 20px;">
 
   </textarea>
