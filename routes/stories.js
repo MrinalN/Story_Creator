@@ -31,7 +31,7 @@ router.get("/:stories_id", (req, res) => {
       .then(data => {
         const story = data.rows;
         const templateVars = {story : story};
-        res.render("storydisplay",templateVars);
+        res.render("stories_id",templateVars);
       })
       .catch(err => {
         res
@@ -65,7 +65,7 @@ router.get("/:stories_id/contributions", (req, res) => {
       }
       temps = { data : data1, SignedInUser : userid};
       console.log(data1)
-      res.render("contributions(trial)",temps);
+      res.render("contributions",temps);
     })
   })
   .catch(err => {
