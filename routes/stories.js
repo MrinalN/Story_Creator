@@ -5,15 +5,11 @@ module.exports  = (db) => {
 
 // PRINTS TITLE LIST TO MAIN PAGE
 router.get("/", (req, res) => {
-  // if (!req.session.user_id) {
-  //   res.redirect('/login');
-  // } else {
     db.query(`SELECT title, description, created_at, publish_date, users.name,stories.id FROM stories
               JOIN users ON users.id = creator_id;`)
     .then(data => {
     const data1 = data.rows;
     const templateVars = { StoriesDB : data1};
-    console.log(data1)
     res.render("stories",templateVars); //Adele changing here
     })
     .catch(err => {
@@ -26,11 +22,15 @@ router.get("/", (req, res) => {
 
 // REDIRECTS TO STORY SPECIFIC PAGE AND RENDERS DATA FROM DATABASE
 router.get("/:stories_id", (req, res) => {
-    db.query(`SELECT title, description FROM stories
+    db.query(`SELECT title, description, id as story_id, creator_id FROM stories
               WHERE id = ${req.params.stories_id};`)
       .then(data => {
         const story = data.rows;
-        const templateVars = {story : story};
+        console.log(story)
+        let user = req.session.user_id
+        console.log(user)
+        const templateVars = {story : story,
+                              user :user};
         res.render("stories_id",templateVars);
       })
       .catch(err => {
@@ -39,6 +39,36 @@ router.get("/:stories_id", (req, res) => {
           .json({ error: err.message });
       });
 });
+
+router.post("/:stories_id/publish", (req, res) => {
+  db.query(`UPDATE stories
+            SET publish_date = '2020-05-12T08:00:00.000Z'
+            WHERE id = ${req.params.stories_id};`)
+    .then(data => {
+      res.redirect('/stories');
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
+router.post("/:stories_id/AddToContribution", (req, res) => {
+  let user_id = req.session.user_id
+    db.query(`INSERT INTO contributions (story_id, contributor_id, content, created_at)
+              VALUES(${req.params.stories_id},${user_id},'${req.body.story}','2020-05-12T08:00:00.000Z')
+              RETURNING *;`)
+      .then(data => {
+        res.redirect(`/stories/${req.params.stories_id}/contributions`);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+});
+
 
 
 router.get("/:stories_id/contributions", (req, res) => {
@@ -54,7 +84,6 @@ router.get("/:stories_id/contributions", (req, res) => {
     db.query(`SELECT COUNT(id) as likes,contribution_id FROM likes_table
               GROUP BY contribution_id;`)
     .then(data2 => {
-      console.log(data2['rows'])
       let likes = data2['rows']
       for (let con_params of data1) {
         for (let like of likes) {
@@ -81,7 +110,7 @@ router.post("/:stories_id/contributions/:contributions_id", (req, res) => {
               WHERE  id = ${req.params.stories_id};`)
   .then(data => {
      let InitialStory = data['rows'][0]['description']
-     db.query(`SELECT content, like FROM contributions
+     db.query(`SELECT content FROM contributions
       WHERE  id = ${req.params.contributions_id};`)
      .then(data2 => {
        let StorytoAdd = data2['rows'][0]['content']
@@ -124,8 +153,6 @@ router.post("/:stories_id/contributions/:contributions_id/likes", (req, res) => 
             VALUES(${req.params.contributions_id},1)
             RETURNING *;`)
   .then(data => {
-    console.log('liked')
-    console.log(data['rows'])
     res.redirect(`/stories/${req.params.stories_id}/contributions`)
   })
   .catch(err => {

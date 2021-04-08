@@ -67,8 +67,8 @@
             <article>
 
               <header>
-                <h5><%=contribution.name %> suggests: </h5>
-                <p>📖</p>
+                <h5><%=contribution.name %> suggests:  </h5>
+                <p>📖 .....likes:<%= contribution['likes']%></p>
               </header>
 
               <h4 style="font-style: italic;"><%= contribution.content %></h4>
@@ -103,23 +103,30 @@
 
         <%} else {%>
           <div class="contributions-box">
+        <!-- AN Apr8 - Accepted INCOMING and CURRENT changes here -->
             <article>
               <header>
                 <h5><%=contribution.name %> suggests: </h5>
                 <p>📖</p>
               </header>
+          <!-- <article class="contributions-box;"  style="width: 60em;border: 5px solid black">
+            <header>
+              <h5><%=contribution.name %> suggests: </h5>
+              <p>📖 .....likes:<%= contribution['likes']%></p>
+            </header> -->
 
             <h4><%= contribution.content %></h4>
             <br>
 
             <footer>
               <p><%= contribution.created_at %></p>
-              <!-- LIKE button for when user.publish_date IS NULL -->
-              <div class="form-group row" id="buttons">
+        <!-- LIKE button for when user.publish_date IS NULL -->
+             <form type="submit" method="POST" action="/stories/<%=contribution['story_id']%>/contributions/<%=contribution['contribution_id']%>/likes">
               <button class="btn btn-block btn-primary" style="width:5em;">
                 <i class="fa fa-thumbs-up"> </i>
               </button>
               </div>
+            </form>
             </footer>
             </article>
           </div>
