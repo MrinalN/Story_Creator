@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <!--Internal StyleSheet-->
+  <link rel="stylesheet" href="/styles/login.css">
   <title>Story Creator</title>
 </head>
-  <body style=" background-color:#7CAF22">
+  <body class="large">
 
- 
-    <!-- <header>
+
+    <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/story">
-          <img src='https://cdn.worldvectorlogo.com/logos/story.svg' width="50" height="50"> Ten Word Tale
+          <img src='https://st2.depositphotos.com/3969727/9550/v/950/depositphotos_95503166-stock-illustration-pen-feather-icon.jpg' width="50" height="50"> Ten Word Tale
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -29,36 +31,45 @@
         </div>
         <p>
           <a href="/login">
-            <button class="btn btn-secondary" value='delete'>Login
+            <button class="btn btn-warning" value='delete'>Login
             </button>
           </a>
           <a href="/register">
-            <button class="btn btn-secondary" value='delete'>Register
+            <button class="btn btn-warning" value='delete'>Register
             </button>
           </a>
         </p>
-      </nav> -->
+      </nav>
+      </header>
 <!-- header bar ends here -->
-    <main style="margin:1em;" >
-      <h3>Login</h3>
-      <h6>to create your own tale or contribute to another!</h6>
-        <br>
+<div class="login">
+  <div class="login-screen">
+    <div class="app-title">
+      <h1>Login</h1>
+    </div>
 
-        <form class="form-block" action="/login" method="POST" style="width: 20em;">
 
-          <p>Email</p>
-          <input class="form-control" type="text" name="email" placeholder="example@me.com">
-          <br>
+    <div class="login-form">
+      <div class="control-group">
+      <input type="text" class="login-field" value="" placeholder="username" id="login-name">
+      <label class="login-field-icon fui-user" for="login-name"></label>
+      </div>
 
-          <p>Password</p>
-          <input class="form-control" type="password" placeholder="password" name="password" >
-          <br>
-          <br>
-          <input type="submit" class="btn btn-primary" value="Login" />
+      <div class="control-group">
+      <input type="password" class="login-field" value="" placeholder="password" id="login-pass">
+      <label class="login-field-icon fui-lock" for="login-pass"></label>
+      </div>
+
+
+      <form action="" method="POST">
+        <button class="btn btn-warning btn-large btn-block" href="#">login</button>
         </form>
 
-    </main>
+    </div>
+  </div>
+</div>
 
+  </body>
     <%- include('partials/_footer') %>
 
 
@@ -66,5 +77,4 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
 </html>
