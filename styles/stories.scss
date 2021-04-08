@@ -1,10 +1,59 @@
-body {
-  background: #7CAF22 !important;
 
+body {
+  background:#3498DB !important;
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 24px !important;
+}
+
+.page-head h1 {
+  font-family: 'New Tegomin', serif;
+}
+
+.page-head {
+  padding: 1em;
+  /* margin-bottom: 0.5em; */
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
 }
 
 .story-box {
-  border: 5px solid black;
+  border-style: solid;
+  border-radius: 7px;
+  padding: 1em;
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  justify-content: center;
+
+}
+
+.story-box:hover {
+  box-shadow: 10px 10px 5px #888;
+}
+
+.story-box header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#story-title {
+  font-style: italic;
+}
+
+//WANT - shorten/ cut off amount of words to fit within box
+// #story-description {
+//  height: 7rem;
+//  overflow-wrap: break-word !important;
+// }
+
+.story-box footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: medium;
 }
 
 .invis {
