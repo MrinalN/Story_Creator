@@ -1,6 +1,6 @@
 -----Last updated Apr 7th - Adele --
 
-INSERT INTO likes_table (contribution_id,user_id)
+INSERT INTO like_table (contribution_id,user_id)
 -- AliceTheCamelCase likes first ( I thought my laces ) contribution
 VALUES(1,1),
 --Brontë3 likes first
