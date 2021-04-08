@@ -81,9 +81,9 @@ router.get("/:stories_id/contributions", (req, res) => {
   .then(data => {
     let userid = req.session.user_id;
     let data1 = data['rows'];
-    db.query(`SELECT COUNT(id) as likes,contribution_id FROM like_table
+    db.query(`SELECT COUNT(id) as likes,contribution_id FROM likes_table
               GROUP BY contribution_id;`)
-    .then(data2 => { 
+    .then(data2 => {
       let likes = data2['rows']
       for (let con_params of data1) {
         for (let like of likes) {
@@ -118,7 +118,7 @@ router.post("/:stories_id/contributions/:contributions_id", (req, res) => {
        db.query(`UPDATE stories SET description  = '${totalStory}'
               WHERE  id = ${req.params.stories_id};`)
       .then(data3 => {
-        db.query(` DELETE FROM contributions 
+        db.query(` DELETE FROM contributions
         WHERE  id = ${req.params.contributions_id};`)
         .then(data4 => {
         res.redirect(`/stories/${req.params.stories_id}`)
@@ -134,9 +134,9 @@ router.post("/:stories_id/contributions/:contributions_id", (req, res) => {
 });
 
 router.post("/:stories_id/contributions/:contributions_id/delete", (req, res) => {
-  db.query(` DELETE FROM contributions 
+  db.query(` DELETE FROM contributions
               WHERE  id = ${req.params.contributions_id};`)
-  .then(data => { console.log('Deleted')  
+  .then(data => { console.log('Deleted')
      res.redirect(`/stories/${req.params.stories_id}/contributions`)
   })
   .catch(err => {
@@ -150,7 +150,7 @@ router.post("/:stories_id/contributions/:contributions_id/delete", (req, res) =>
 // test with req.session.req.session.user_id NOT DONE WITHOUT LOGINNNNNNNNNNNNNNNN
 router.post("/:stories_id/contributions/:contributions_id/likes", (req, res) => {
   db.query(`INSERT INTO like_table (contribution_id,user_id)
-            VALUES(${req.params.contributions_id},1)                   
+            VALUES(${req.params.contributions_id},1)
             RETURNING *;`)
   .then(data => {
     res.redirect(`/stories/${req.params.stories_id}/contributions`)
