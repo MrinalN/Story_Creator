@@ -51,7 +51,7 @@ router.get("/:stories_id/contributions", (req, res) => {
   .then(data => {
     let userid = req.session.user_id;
     let data1 = data['rows'];
-    db.query(`SELECT COUNT(id) as likes,contribution_id FROM like_table
+    db.query(`SELECT COUNT(id) as likes,contribution_id FROM likes_table
               GROUP BY contribution_id;`)
     .then(data2 => {
       console.log(data2['rows'])
@@ -81,7 +81,7 @@ router.post("/:stories_id/contributions/:contributions_id", (req, res) => {
               WHERE  id = ${req.params.stories_id};`)
   .then(data => {
      let InitialStory = data['rows'][0]['description']
-     db.query(`SELECT content, likes FROM contributions
+     db.query(`SELECT content, like FROM contributions
       WHERE  id = ${req.params.contributions_id};`)
      .then(data2 => {
        let StorytoAdd = data2['rows'][0]['content']

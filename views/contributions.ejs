@@ -9,13 +9,13 @@
       <!-- link for emoticon database used -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
-<!-- What they set up for us: don't change. SASS related * redundant?-->
+<!-- What they set up for us: don't change. SASS related * redundant?
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script> -->
 
   <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -45,16 +45,11 @@
             </li>
             </ul>
         </div>
-        <p>
-          <a href="/login">
-            <button class="btn btn-secondary" value='delete'>Login
-            </button>
-          </a>
-          <a href="/register">
-            <button class="btn btn-secondary" value='delete'>Register
-            </button>
-          </a>
-        </p>
+        <div class="logout-phrase">
+        <h5>Welcome back, Brontë3! </h5>
+        <form method="GET" action="/logout"><button class="btn btn-warning" value='delete'>Logout</button>
+        </form>
+        </div>
       </nav>
   <!-- header bar ends here -->
 
@@ -78,10 +73,10 @@
                 <h5><%=contribution.name %> suggests: </h5>
                 <p>📖</p>
               </header>
-  
+
               <p><%= contribution.content %></p>
               <br>
-  
+
               <footer>
                 <p><%= contribution.created_at %></p>
           <!-- LIKE button for when user.publish_date IS NULL -->
@@ -128,7 +123,7 @@
 
 
     </main>
-       <!-- - include('partials_footer') 
+       <!-- - include('partials_footer')
   </body>
 </html> -->
 
