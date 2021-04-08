@@ -12,6 +12,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   let password = req.body.password;
   let hashedPassword = bcrypt.hashSync(password, 10);
+  console.log(req.body)
 
   if (req.body.email === '' || req.body.password === '' || req.body.username === '') {
     res.status(404).send('Error: 404 Username, Email or Password empty');

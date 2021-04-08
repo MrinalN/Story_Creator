@@ -48,27 +48,23 @@
         <h1>Login</h1>
       </div>
 
-
-      <div class="login-form">
-        <div class="control-group">
-          <input type="text" class="login-field" value="" placeholder="username" id="login-name">
-          <label class="login-field-icon fui-user" for="login-name"></label>
-        </div>
-
-        <div class="control-group">
-          <input type="password" class="login-field" value="" placeholder="password" id="login-pass">
-          <label class="login-field-icon fui-lock" for="login-pass"></label>
-        </div>
-
-
-        <form action="" method="POST">
-          <button class="btn btn-success" href="#">login</button>
-        </form>
-
+  <form method="post" action="/login">
+    <div class="login-form">
+      <div class="control-group">
+      <input type="text" class="login-field" name="email" placeholder="email" id="login-name">
+      <label class="login-field-icon fui-user" for="login-name"></label>
       </div>
+      <div class="control-group">
+      <input type="password" class="login-field" value="" placeholder="password" id="login-pass">
+      <label class="login-field-icon fui-lock" for="login-pass"></label>
+      </div>
+      <form action="" method="POST">
+        <button class="btn btn-warning btn-large btn-block" href="#">login</button>
+        </form>
     </div>
   </div>
+</div>
 </main>
-</body>
+  </body>
     <%- include('partials/_footer') %>
 </html>
