@@ -35,6 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 80%;
+  height: fit-content;
   margin: auto;
   justify-content: center;
 
@@ -44,6 +45,11 @@ body {
 display: flex;
 justify-content: space-between;
 }
+
+.contributions-box header p{
+font-size: 60px;
+}
+
 
 .contributions-box footer {
   // display: flex;

@@ -54,7 +54,7 @@
 
     <main>
       <div class="page-head">
-      <h3>Contribute to:  </h3>
+      <h3>Contributions for:  </h3>
       <br>
       <h1><%= data[0]['title']%></h1>
       <br>
@@ -71,11 +71,11 @@
                 <p>📖</p>
               </header>
 
-              <p><%= contribution.content %></p>
+              <h4 style="font-style: italic;"><%= contribution.content %></h4>
               <br>
 
               <footer>
-                <p><%= contribution.created_at %></p>
+                <!-- <p><%= contribution.created_at %></p> -->
             <!-- LIKE button for when user.publish_date IS NULL -->
                   <form method="POST" action="/stories/<%=contribution['story_id'] %>/contributions/<%= contribution['contribution_id'] %>">
 
@@ -109,7 +109,7 @@
                 <p>📖</p>
               </header>
 
-            <p><%= contribution.content %></p>
+            <h4><%= contribution.content %></h4>
             <br>
 
             <footer>
