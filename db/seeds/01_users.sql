@@ -1,3 +1,4 @@
+-----Last updated Apr 7th - Adele --
 
 INSERT INTO users (name, email, password, creator_status)
 VALUES ('AliceTheCamelCase', 'alice.cooks.lots@mail.com', '$2b$10$SrfvKyMhlnp.m1h1j8qjeOMPt0go.FvET7Pk2Xgjy/gxiwGYRMd32', FALSE),
