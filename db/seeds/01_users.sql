@@ -1,8 +1,8 @@
 -----Last updated Apr 3rd - Adele--
 INSERT INTO users (name, email, password, creator_status)
-VALUES ('Alice', 'alice.cooks.lots@mail.com', 'password', FALSE),
-('Bob', 'bob.writes@mail.com', 'password', TRUE),
-('Carol', 'carol@carol.com', 'password', FALSE);
+VALUES ('Alice', 'alice.cooks.lots@mail.com', '$2b$10$SrfvKyMhlnp.m1h1j8qjeOMPt0go.FvET7Pk2Xgjy/gxiwGYRMd32', FALSE),
+('Bob', 'bob.writes@mail.com', '$2b$10$SrfvKyMhlnp.m1h1j8qjeOMPt0go.FvET7Pk2Xgjy/gxiwGYRMd32', TRUE),
+('Carol', 'carol@carol.com', '$2b$10$SrfvKyMhlnp.m1h1j8qjeOMPt0go.FvET7Pk2Xgjy/gxiwGYRMd32', FALSE);
 
 --current sample stories all be writen by Bob (users.id 2) who is the only one with TRUE creator_status
 INSERT INTO stories (title, description, created_at, publish_date, creator_id)
