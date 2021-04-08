@@ -47,6 +47,7 @@ const stories = require("./routes/stories");
 const creator = require("./routes/creator");
 const login = require("./routes/login");
 const register = require("./routes/register");
+const logout = require("./routes/logout");
 // const contributions = require("./routes/contributions")
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -55,6 +56,7 @@ app.use("/stories", stories(db));
 app.use("/creator", creator(db));
 app.use("/login", login(db));
 app.use("/register", register(db));
+app.use("/logout", logout(db))
 // app.use("/contributions", contributions(db));
 // Note: mount other resources here, using the same pattern above
 
