@@ -1,3 +1,4 @@
+
 <h1>This is contributions page</h1>
 
 <% for (let contribution of data) { %>
@@ -8,13 +9,21 @@
               <button type="submit" class="btn btn-primary ">ADD to STORY</button>
             </div>
     </form>
-    <form method="GET" action="/stories/<%= contribution['story_id'] %>/contributions/<%= contribution['id'] %>/delete"> 
+    <form method="post" action="/stories/<%=contribution['story_id'] %>/contributions/<%= contribution['contribution_id']%>/delete"> 
       <div class="form-group row">
           <div class="col-sm-8">
             <button type="submit" class="btn btn-primary ">DELETE</button>
           </div>
   </form>
-    
-<% } %> 
+  <form method="post" action="/stories/<%=contribution['story_id'] %>/contributions/<%= contribution['contribution_id']%>/likes"> 
+    <div class="form-group row">
+        <div class="col-sm-8">
+          <button type="submit" class="btn btn-primary ">LIKES</button>
+        </div>
+</form>
+<%= contribution.likes %>
+
+<% } %>
+
 
 
