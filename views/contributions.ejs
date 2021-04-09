@@ -20,34 +20,36 @@
 
   <body >
 
-    <header>
-      <!-- - include('partials_header')  -->
-
-<!-- IGNORE - hard printed header to check view -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/story">
-          <img src='https://www.livingmags.info/wp-content/uploads/final-insp-in-iso-03-1.png' width="60" height="60"> Ten Word Tale
-        </a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Start a Story</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contribute to a Story</a>
-            </li>
-            </ul>
-        </div>
-        <div class="logout-phrase">
-        <h5>Welcome back, Brontë3! </h5>
-        <form method="GET" action="/logout"><button class="btn btn-warning" value='delete'>Logout</button>
-        </form>
-        </div>
-      </nav>
-  <!-- header bar ends here -->
-
+    <header id=#headerbar>
+      <!-- < include('partials/_header') > -->
+     
+           <nav class="navbar navbar-expand-lg navbar-light bg-light">
+             <a class="navbar-brand" href="/story">
+               <img src='https://www.livingmags.info/wp-content/uploads/final-insp-in-iso-03-1.png' width="60" height="60"> Ten Word Tale
+             </a>
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav mr-auto">
+                 <li class="nav-item active">
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="/creator">Start a Story</a>
+                 </li>
+                 <li class="nav-item">
+                   <a class="nav-link" href="/stories">Contribute to a Story</a>
+                 </li>
+                 </ul>
+             </div>
+             <p>
+               <a href="/login">
+                 <button class="btn btn-warning" value='delete'>Login
+                 </button>
+               </a>
+               <a href="/register">
+                 <button class="btn btn-warning" value='delete'>Register
+                 </button>
+               </a>
+             </p>
+           </nav>
     </header>
 
 
@@ -61,7 +63,7 @@
       </div>
 
         <% for (let contribution of data) { %>
-          <% if ( SignedInUser !== contribution.creator_id) { %>
+          <% if ( SignedInUser === contribution.creator_id) { %>
           <div class="contributions-box">
 
             <article>
@@ -107,7 +109,7 @@
             <article>
               <header>
                 <h5><%=contribution.name %> suggests: </h5>
-                <p>📖</p>
+                <p>📖 <%= contribution['likes']%> likes </p>
               </header>
 
     <!-- <article class="contributions-box;"  style="width: 60em;border: 5px solid black">
@@ -123,9 +125,7 @@
               <p><%= contribution.created_at %></p>
         <!-- LIKE button for when user.publish_date IS NULL -->
              <form type="submit" method="POST" action="/stories/<%=contribution['story_id']%>/contributions/<%=contribution['contribution_id']%>/likes">
-              <button class="btn btn-block btn-primary" style="width:5em;">
-                <i class="fa fa-thumbs-up"> </i>
-              </button>
+              <button class="btn btn-block btn-primary" style="width:5em;">LIKE </button>
               </div>
             </form>
             </footer>

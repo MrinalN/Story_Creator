@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
 
 // REDIRECTS TO STORY SPECIFIC PAGE AND RENDERS DATA FROM DATABASE
   router.get("/:stories_id", (req, res) => {
-    db.query(`SELECT title, description, id as story_id, creator_id FROM stories
+    db.query(`SELECT title, description, id as story_id, publish_date, creator_id FROM stories
               WHERE id = ${req.params.stories_id};`)
       .then(data => {
         const story = data.rows;
@@ -81,7 +81,7 @@ router.get("/:stories_id/contributions", (req, res) => {
   .then(data => {
     let userid = req.session.user_id;
     let data1 = data['rows'];
-    db.query(`SELECT COUNT(id) as likes,contribution_id FROM likes_table
+    db.query(`SELECT COUNT(id) as likes,contribution_id FROM like_table
               GROUP BY contribution_id;`)
     .then(data2 => {
       let likes = data2['rows']

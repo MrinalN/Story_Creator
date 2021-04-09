@@ -12,31 +12,37 @@
   <link rel="stylesheet" href="/styles/footer.css">
   <title>Story Creator</title>
 </head>
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/story">
-      <img src='https://st2.depositphotos.com/3969727/9550/v/950/depositphotos_95503166-stock-illustration-pen-feather-icon.jpg' width="50" height="50"> Ten Word Tale
-    </a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Start a Story</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contribute to a Story</a>
-        </li>
-        </ul>
-    </div>
-    <p>
-      <a href="/logout">
-        <button class="btn btn-warning" value='delete'>Logout
-        </button>
-      </a>
-    </p>
-  </nav>
-  </header>
+<header id=#headerbar>
+  <!-- < include('partials/_header') > -->
+ 
+       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <a class="navbar-brand" href="/story">
+           <img src='https://www.livingmags.info/wp-content/uploads/final-insp-in-iso-03-1.png' width="60" height="60"> Ten Word Tale
+         </a>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/creator">Start a Story</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="/stories">Contribute to a Story</a>
+             </li>
+             </ul>
+         </div>
+         <p>
+           <a href="/login">
+             <button class="btn btn-warning" value='delete'>Login
+             </button>
+           </a>
+           <a href="/register">
+             <button class="btn btn-warning" value='delete'>Register
+             </button>
+           </a>
+         </p>
+       </nav>
+     </header>
 
 <body style='background-color: #3498DB'>
   <main style="margin: 1em">
@@ -47,21 +53,16 @@
     <!-- </div> -->
       <form method="POST" action="/creator" id='CreateStory'>
         <div class="stories">
-          <textarea rows="10" cols="100" name="story" form="edit-story" style="margin-top: 20px;">
-            Be creative!
-          </textarea>
+          <input type="text" placeholder="Title" name='title' style="width:500px">
+          <textarea rows="10" cols="100" name="story" style="margin-top: 20px;"></textarea>
           <br>
-        <button type="submit" class="btn btn-success" id="submit-story" method='POST' action='/stories'>Complete Story!</button>
+        <button style="width: 250px;" type="submit" class="btn btn-danger" id="submit-story" method='POST' action='/stories'>Start Story!</button>
       </div>
 </form>
 </div>
 
 <div class='bottom-box'>
 
-  <form method='POST' action='#'>
-      <button id='done-button' class="btn btn-danger">Add to Your Story</button>
-  </form>
-  <a>
 
 </div>
 </main>
@@ -72,9 +73,9 @@
 </body>
 </html>
 
-<footer class="bg-light">
+<!-- <footer class="bg-light">
   <div class="text" style="margin-left: 20px; margin-right: 20px;">
-    <!-- <div style="margin-right: 20em;"> -->
+    <div style="margin-right: 20em;">
       <p>Follow us on Social Media!
       <img src="https://www.flaticon.com/svg/vstatic/svg/174/174848.svg?token=exp=1617885230~hmac=8502c935b3e82817bd174c107f69aef3" style="width: 20px; height: 20px;">
       <img src="https://www.flaticon.com/svg/vstatic/svg/1409/1409937.svg?token=exp=1617886489~hmac=ebfd09d1dc15dc3cdf137ca51f8dee0d" style="width: 20px; height: 20px;">
@@ -82,7 +83,7 @@
       </p>
     © 2020 Copyright: AJAY Inc.
   </div>
-</footer>
+</footer> -->
 
 
 </html>
