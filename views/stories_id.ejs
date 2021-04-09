@@ -12,7 +12,7 @@
 
 <header id=#headerbar>
   <!-- < include('partials/_header') > -->
- 
+
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
          <a class="navbar-brand" href="/story">
            <img src='https://www.livingmags.info/wp-content/uploads/final-insp-in-iso-03-1.png' width="60" height="60"> Ten Word Tale
@@ -29,29 +29,24 @@
              </li>
              </ul>
          </div>
-         <p>
-           <a href="/login">
-             <button class="btn btn-warning" value='delete'>Login
-             </button>
-           </a>
-           <a href="/register">
-             <button class="btn btn-warning" value='delete'>Register
-             </button>
-           </a>
-         </p>
+         <div class="logout-phrase">
+          <h5>Welcome back, Brontë3! </h5>
+          <form method="GET" action="/logout"><button class="btn btn-warning" value='delete'>Logout</button>
+          </form>
+          </div>
        </nav>
 </header>
 
 <body style="background-color: #3498DB ;align-items: center;">
-  
+
   <main style="margin: 1em">
     <div class='large-container' ></div>
     <h3><%= story[0]['title'] %></h3>
-    
+
       <div class="stories" id='stories'>
         <p> <%= story[0]['description'] %></p>
       </div>
-  
+
   <div class='bottom-box'>
     <form method='POST' action='/stories/<%= story[0]["story_id"] %>/AddToContribution' >
     <textarea rows="5" cols="70" name="story" style="margin-top: 20px;"></textarea>
