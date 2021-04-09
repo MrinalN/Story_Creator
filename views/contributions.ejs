@@ -22,7 +22,7 @@
 
     <header id=#headerbar>
       <!-- < include('partials/_header') > -->
-     
+
            <nav class="navbar navbar-expand-lg navbar-light bg-light">
              <a class="navbar-brand" href="/story">
                <img src='https://www.livingmags.info/wp-content/uploads/final-insp-in-iso-03-1.png' width="60" height="60"> Ten Word Tale
@@ -39,16 +39,11 @@
                  </li>
                  </ul>
              </div>
-             <p>
-               <a href="/login">
-                 <button class="btn btn-warning" value='delete'>Login
-                 </button>
-               </a>
-               <a href="/register">
-                 <button class="btn btn-warning" value='delete'>Register
-                 </button>
-               </a>
-             </p>
+             <div class="logout-phrase">
+              <h5>Welcome back, Brontë3! </h5>
+              <form method="GET" action="/logout"><button class="btn btn-warning" value='delete'>Logout</button>
+              </form>
+              </div>
            </nav>
     </header>
 
@@ -70,7 +65,7 @@
 
               <header>
                 <h5><%=contribution.name %> suggests:  </h5>
-                <p>📖 <%= contribution['likes']%> likes</p>
+                <p>👍 <%= contribution['likes']%></p>
               </header>
 
               <h4 style="font-style: italic;"><%= contribution.content %></h4>
@@ -109,7 +104,7 @@
             <article>
               <header>
                 <h5><%=contribution.name %> suggests: </h5>
-                <p>📖 <%= contribution['likes']%> likes </p>
+                <p>👍 <%= contribution['likes']%></p>
               </header>
 
     <!-- <article class="contributions-box;"  style="width: 60em;border: 5px solid black">
